@@ -91,7 +91,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
             </div>
             {product.badge && (
               <span
-                className="absolute top-4 left-4 text-white px-3 py-1.5 rounded-lg text-sm font-semibold shadow-lg"
+                className="absolute top-4 left-4 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg"
                 style={{ backgroundColor: '#083A85' }}
               >
                 {product.badge}
@@ -102,7 +102,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
           {/* Right Side - Product Details */}
           <div className="flex flex-col">
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">{product.name}</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-black mb-3">{product.name}</h2>
 
               {/* Rating */}
               <div className="flex items-center gap-2 mb-4">
@@ -114,7 +114,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-2xl md:text-3xl font-bold" style={{ color: '#083A85' }}>
+                <span className="text-lg md:text-xl font-bold" style={{ color: '#083A85' }}>
                   {product.price}
                 </span>
               </div>
@@ -132,11 +132,11 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-700 mb-6 leading-relaxed">{product.description}</p>
+              <p className="text-xs text-gray-700 mb-6 leading-relaxed">{product.description}</p>
 
               {/* Specifications */}
               <div className="mb-6">
-                <h3 className="text-sm font-semibold text-black mb-3">Key Specifications</h3>
+                <h3 className="text-xs font-semibold text-black mb-3">Key Specifications</h3>
                 <ul className="space-y-2">
                   {product.specs.map((spec, index) => (
                     <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
@@ -153,14 +153,14 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
               <button
                 onClick={handleOrderNow}
                 disabled={!product.inStock}
-                className="flex-1 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-lg"
+                className="flex-1 text-white px-6 py-2 rounded-lg text-xs font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-lg"
                 style={{ backgroundColor: '#083A85' }}
               >
                 Order Now
               </button>
               <button
                 onClick={onClose}
-                className="px-6 py-2 rounded-lg text-sm font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
+                className="px-6 py-2 rounded-lg text-xs font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
                 style={{ borderColor: '#083A85', color: '#083A85' }}
               >
                 Continue browsing
