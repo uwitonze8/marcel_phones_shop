@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ProductModal from '@/components/ProductModal';
+import Navbar from '@/app/components/Navbar';
+import Footer from '@/app/components/Footer';
+import ProductModal from '@/app/components/ProductModal';
 import { BsPhone, BsLaptop, BsTablet, BsSmartwatch, BsHeadphones, BsController, BsTruck, BsChatDots, BsCashCoin, BsShieldCheck, BsApple, BsPhoneFill, BsDisplay, BsPrinter, BsMusicNoteBeamed, BsKeyboard } from 'react-icons/bs';
 
 interface Product {
@@ -30,7 +30,7 @@ export default function Home() {
       name: 'iPhone 15 Pro Max',
       price: 'RWF 1,549,000',
       description: 'Experience the latest flagship smartphone from Apple with cutting-edge technology, stunning display, and powerful performance.',
-      image: 'https://images.unsplash.com/photo-1592286927505-38c77b8ebaa1?w=400&q=80',
+      image: 'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
       badge: 'New',
       specs: [
         'A17 Pro chip with 6-core GPU',
@@ -138,7 +138,7 @@ export default function Home() {
       name: 'iPad Pro 12.9"',
       price: 'RWF 1,420,000',
       description: 'The ultimate iPad experience with M2 chip. Perfect for creativity and productivity on the go.',
-      image: 'https://images.unsplash.com/photo-1585790050230-5dd28404f27a?w=400&q=80',
+      image: 'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
       badge: 'Hot',
       specs: [
         'Apple M2 chip',
@@ -236,7 +236,7 @@ export default function Home() {
 
             {/* Frequently Searched */}
             <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-              <span className="text-white text-xs">Frequently searched:</span>
+              <span className="text-white text-xs">Quick search:</span>
               <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
                 iPhone 15 Pro Max
               </button>
@@ -314,8 +314,8 @@ export default function Home() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">Shop by Category</h2>
-            <p className="text-sm text-black">Find exactly what you're looking for</p>
+            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Shop by Category</h2>
+            <p className="text-xs text-black">Find exactly what you're looking for</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -380,8 +380,8 @@ export default function Home() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">Featured Products</h2>
-            <p className="text-sm text-black">Best deals on top electronics</p>
+            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Featured Products</h2>
+            <p className="text-xs text-black">Best deals on top electronics</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -418,9 +418,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
+            <a href="/user/product">
             <button className="text-white px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
               View All Products
             </button>
+            </a>
           </div>
         </div>
       </section>
@@ -429,8 +431,8 @@ export default function Home() {
       <section className="py-12" style={{backgroundColor: '#f8f9fa'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">Why Choose Us</h2>
-            <p className="text-sm text-black">Your trusted electronics partner</p>
+            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Why Choose Us</h2>
+            <p className="text-xs text-black">Your trusted electronics partner</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -469,8 +471,8 @@ export default function Home() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">Brands We Carry</h2>
-            <p className="text-sm text-black">Top electronics brands worldwide</p>
+            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Brands We Carry</h2>
+            <p className="text-xs text-black">Top electronics brands worldwide</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
