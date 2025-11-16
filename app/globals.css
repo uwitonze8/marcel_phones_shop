@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Custom Breakpoints */
+@custom-media --xs (min-width: 475px);
+
 :root {
   --background: #ffffff;
   --foreground: #000000;

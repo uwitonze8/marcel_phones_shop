@@ -25,72 +25,72 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative bg-linear-to-br from-white to-gray-50 rounded-3xl shadow-2xl max-w-lg w-full animate-scaleIn overflow-hidden">
+    <div className="fixed inset-0 z-60 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+      <div className="relative bg-linear-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-2xl max-w-lg w-full animate-scaleIn overflow-hidden">
         {/* Decorative Background Pattern */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-green-100 rounded-full opacity-20 blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20 blur-3xl -z-10" style={{ backgroundColor: '#083A85' }}></div>
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 bg-green-100 rounded-full opacity-20 blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 opacity-20 blur-3xl -z-10" style={{ backgroundColor: '#083A85' }}></div>
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 z-10 p-2.5 rounded-full bg-white/80 hover:bg-white shadow-lg transition-all cursor-pointer hover:scale-110"
+          className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 p-2 sm:p-2.5 rounded-full bg-white/80 hover:bg-white shadow-lg transition-all cursor-pointer hover:scale-110"
         >
-          <BsX className="w-6 h-6 text-gray-700" />
+          <BsX className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
         </button>
 
         {/* Content */}
-        <div className="p-4 text-center relative">
+        <div className="p-3 sm:p-4 text-center relative">
           {/* Animated Bell Icon */}
-          <div className="mb-1.5 flex justify-center">
+          <div className="mb-1 sm:mb-1.5 flex justify-center">
             <div className="animate-bellSwing relative">
               <div className="absolute inset-0 bg-green-400 rounded-full blur-lg opacity-40"></div>
-              <BsBellFill className="w-8 h-8 text-green-500 relative drop-shadow-lg" />
+              <BsBellFill className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 relative drop-shadow-lg" />
             </div>
           </div>
 
           {/* Success Check Icon with Ring */}
-          <div className="mb-2 flex justify-center relative">
+          <div className="mb-1.5 sm:mb-2 flex justify-center relative">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-14 h-14 bg-green-100 rounded-full animate-ping-slow opacity-75"></div>
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-green-100 rounded-full animate-ping-slow opacity-75"></div>
             </div>
             <div className="relative bg-linear-to-br from-green-400 to-green-600 rounded-full p-1 shadow-lg">
-              <BsCheckCircleFill className="w-10 h-10 text-white animate-scaleIn drop-shadow-lg" />
+              <BsCheckCircleFill className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-scaleIn drop-shadow-lg" />
             </div>
           </div>
 
           {/* Thank You Message with Customer Name */}
           <div className={`transition-all duration-700 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h2 className="text-lg font-bold mb-1.5 bg-linear-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
+            <h2 className="text-base sm:text-lg font-bold mb-1 sm:mb-1.5 bg-linear-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
               Order Confirmed!
             </h2>
 
-            <div className="mb-2.5 bg-linear-to-r from-green-50 to-emerald-50 rounded-lg p-2.5 shadow-inner">
-              <p className="text-base font-bold text-green-600 mb-1 animate-fadeInUp leading-tight">
+            <div className="mb-2 sm:mb-2.5 bg-linear-to-r from-green-50 to-emerald-50 rounded-lg p-2 sm:p-2.5 shadow-inner">
+              <p className="text-sm sm:text-base font-bold text-green-600 mb-1 animate-fadeInUp leading-tight">
                 Dear {customerName} We are so grateful for your trust in our products.
               </p>
-              <p className="text-xs text-gray-700 leading-snug">
+              <p className="text-xs sm:text-sm text-gray-700 leading-snug">
                 Your order has been successfully placed and confirmed.
               </p>
             </div>
 
             {/* Order Details - Ultra Compact */}
-            <div className="bg-linear-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-lg p-2.5 mb-2 shadow-md">
+            <div className="bg-linear-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-lg p-2 sm:p-2.5 mb-2 shadow-md">
               {deliveryOption === 'delivery' ? (
                 <div className="space-y-1">
                   <div className="flex items-center justify-center gap-1.5 mb-0.5">
                     <div className="bg-green-500 p-1 rounded-full shadow-sm">
-                      <BsTruck className="w-3 h-3 text-white" />
+                      <BsTruck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                     </div>
                   </div>
-                  <p className="text-xs font-bold text-green-800">
+                  <p className="text-xs sm:text-sm font-bold text-green-800">
                     Your order will be delivered to your address
                   </p>
                   <div className="bg-white/70 rounded-lg p-1.5 space-y-0.5">
-                    <p className="text-xs text-gray-800 font-semibold">
+                    <p className="text-xs sm:text-sm text-gray-800 font-semibold">
                       📦 Expected delivery: <span className="text-green-700">3-5 hours</span>
                     </p>
-                    <p className="text-xs text-gray-700">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       🔍 We'll send tracking information to your email
                     </p>
                   </div>
@@ -99,17 +99,17 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
                 <div className="space-y-1">
                   <div className="flex items-center justify-center gap-1.5 mb-0.5">
                     <div className="bg-green-500 p-1 rounded-full shadow-sm">
-                      <BsShop className="w-3 h-3 text-white" />
+                      <BsShop className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                     </div>
                   </div>
-                  <p className="text-xs font-bold text-green-800">
+                  <p className="text-xs sm:text-sm font-bold text-green-800">
                     Your order will be ready for pickup
                   </p>
                   <div className="bg-white/70 rounded-lg p-1.5 space-y-0.5">
-                    <p className="text-xs text-gray-800 font-semibold">
+                    <p className="text-xs sm:text-sm text-gray-800 font-semibold">
                       ⏱️ Ready in: <span className="text-green-700">2-4 hours</span>
                     </p>
-                    <p className="text-xs text-gray-700">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       📍 We'll notify you when it's ready
                     </p>
                   </div>
@@ -118,20 +118,20 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
             </div>
 
             {/* Notification Info - Ultra Compact */}
-            <div className="bg-linear-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-2 mb-3 shadow-sm">
-              <h4 className="text-xs font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
+            <div className="bg-linear-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-2 mb-2 sm:mb-3 shadow-sm">
+              <h4 className="text-xs sm:text-sm font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
                 <span className="text-sm">📬</span> You'll Receive Notifications
               </h4>
               <div className="space-y-0.5">
                 <div className="flex items-center gap-1.5 bg-white/70 rounded p-1">
-                  <BsEnvelopeFill className="w-3 h-3 text-blue-600 shrink-0" />
-                    <p className="text-xs text-gray-700 text-left">
+                  <BsEnvelopeFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 shrink-0" />
+                    <p className="text-xs sm:text-sm text-gray-700 text-left">
                     <span className="font-semibold">Email:</span> Confirmation sent to inbox
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white/70 rounded p-1">
-                  <BsChatDotsFill className="w-3 h-3 text-blue-600 shrink-0" />
-                  <p className="text-xs text-gray-700 text-left">
+                  <BsChatDotsFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 shrink-0" />
+                  <p className="text-xs sm:text-sm text-gray-700 text-left">
                     <span className="font-semibold">SMS:</span> Order status updates
                   </p>
                 </div>
@@ -141,7 +141,7 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
             {/* Action Button - Ultra Compact */}
             <button
               onClick={onClose}
-              className="w-full text-white px-6 py-2 rounded-lg text-sm font-bold hover:scale-105 transition-all cursor-pointer shadow-lg bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600"
+              className="w-full text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold hover:scale-105 transition-all cursor-pointer shadow-lg bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600"
             >
               Continue Shopping
             </button>
