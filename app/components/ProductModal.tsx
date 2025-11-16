@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BsX, BsCheck, BsStar, BsStarFill } from 'react-icons/bs';
+import { BsX, BsCheck } from 'react-icons/bs';
 import OrderForm from './OrderForm';
 import SuccessModal from './SuccessModal';
 
@@ -11,10 +11,7 @@ interface Product {
   price: string;
   description: string;
   image: string;
-  badge: string;
   specs: string[];
-  rating: number;
-  reviews: number;
   inStock: boolean;
 }
 
@@ -57,16 +54,6 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
     onClose();
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      index < rating ? (
-        <BsStarFill key={index} className="w-4 h-4" style={{ color: '#FFB800' }} />
-      ) : (
-        <BsStar key={index} className="w-4 h-4 text-gray-300" />
-      )
-    ));
-  };
-
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
@@ -89,28 +76,12 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
                 className="w-full h-full object-contain max-h-96"
               />
             </div>
-            {product.badge && (
-              <span
-                className="absolute top-4 left-4 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg"
-                style={{ backgroundColor: '#083A85' }}
-              >
-                {product.badge}
-              </span>
-            )}
           </div>
 
           {/* Right Side - Product Details */}
           <div className="flex flex-col">
             <div className="flex-1">
               <h2 className="text-xl md:text-2xl font-bold text-black mb-3">{product.name}</h2>
-
-              {/* Rating */}
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex gap-1">{renderStars(product.rating)}</div>
-                <span className="text-xs text-gray-600">
-                  {product.rating}.0 ({product.reviews} reviews)
-                </span>
-              </div>
 
               {/* Price */}
               <div className="mb-6">

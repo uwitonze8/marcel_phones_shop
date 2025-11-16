@@ -99,56 +99,56 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-slideUp">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-3xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto animate-slideUp">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white hover:bg-gray-100 transition-all shadow-lg cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full bg-white hover:bg-gray-100 transition-all shadow-lg cursor-pointer"
         >
-          <BsX className="w-6 h-6 text-black" />
+          <BsX className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </button>
 
         {/* Header */}
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-black mb-2">Complete Your Order</h2>
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-gray-600">{productName}</p>
-            <p className="text-xs font-bold" style={{ color: '#083A85' }}>{productPrice}</p>
+        <div className="p-4 sm:p-6 border-b border-gray-200">
+          <h2 className="text-lg sm:text-xl font-bold text-black mb-2 pr-8">Complete Your Order</h2>
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <p className="text-xs sm:text-sm text-gray-600">{productName}</p>
+            <p className="text-xs sm:text-sm font-bold" style={{ color: '#083A85' }}>{productPrice}</p>
           </div>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Delivery Option */}
           <div>
-            <label className="block text-xs font-semibold text-black mb-3">Delivery Option</label>
-            <div className="grid grid-cols-2 gap-4">
+            <label className="block text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3">Delivery Option</label>
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               <button
                 type="button"
                 onClick={() => setFormData(prev => ({ ...prev, deliveryOption: 'delivery' }))}
-                className={`flex items-center justify-center gap-2 p-4 rounded-lg border-2 transition-all cursor-pointer ${
+                className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-lg border-2 transition-all cursor-pointer ${
                   formData.deliveryOption === 'delivery'
                     ? 'border-[#083A85] bg-blue-50'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
-                <BsTruck className={`w-5 h-5 ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-600'}`} />
-                <span className={`text-xs font-semibold ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-700'}`}>
+                <BsTruck className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-700'}`}>
                   Home Delivery
                 </span>
               </button>
               <button
                 type="button"
                 onClick={() => setFormData(prev => ({ ...prev, deliveryOption: 'pickup' }))}
-                className={`flex items-center justify-center gap-2 p-4 rounded-lg border-2 transition-all cursor-pointer ${
+                className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-lg border-2 transition-all cursor-pointer ${
                   formData.deliveryOption === 'pickup'
                     ? 'border-[#083A85] bg-blue-50'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
-                <BsShop className={`w-5 h-5 ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-600'}`} />
-                <span className={`text-xs font-semibold ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-700'}`}>
+                <BsShop className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-700'}`}>
                   Store Pickup
                 </span>
               </button>
@@ -157,11 +157,11 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
 
           {/* Personal Information */}
           <div>
-            <h3 className="text-xs font-semibold text-black mb-3 flex items-center gap-2">
-              <BsPersonFill className="w-4 h-4" style={{ color: '#083A85' }} />
+            <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
+              <BsPersonFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
               Personal Information
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-xs font-medium text-gray-700 mb-1">
                   First Name <span className="text-red-500">*</span>
@@ -219,11 +219,11 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-xs font-semibold text-black mb-3 flex items-center gap-2">
-              <BsEnvelopeFill className="w-4 h-4" style={{ color: '#083A85' }} />
+            <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
+              <BsEnvelopeFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
               Contact Information
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-xs font-medium text-gray-700 mb-1">
                   Email Address <span className="text-red-500">*</span>
@@ -263,11 +263,11 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           {/* Delivery Address (only show if delivery option is selected) */}
           {formData.deliveryOption === 'delivery' && (
             <div>
-              <h3 className="text-xs font-semibold text-black mb-3 flex items-center gap-2">
-                <BsGeoAltFill className="w-4 h-4" style={{ color: '#083A85' }} />
+              <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
+                <BsGeoAltFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
                 Delivery Address
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-xs font-medium text-gray-700 mb-1">
                     Street Address <span className="text-red-500">*</span>
@@ -299,7 +299,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1">
                       City <span className="text-red-500">*</span>
@@ -335,7 +335,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1">
                       Postal/ZIP Code <span className="text-red-500">*</span>
@@ -390,13 +390,13 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
 
           {/* Pickup Information */}
           {formData.deliveryOption === 'pickup' && (
-            <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 space-y-3">
-              <h3 className="text-xs font-bold text-black mb-3 flex items-center gap-2">
-                <BsShop className="w-5 h-5" style={{ color: '#083A85' }} />
+            <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-3 sm:p-5 space-y-3">
+              <h3 className="text-xs sm:text-sm font-bold text-black mb-2 sm:mb-3 flex items-center gap-2">
+                <BsShop className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
                 Store Pickup Information
               </h3>
 
-              <div className="bg-white rounded-lg p-4 space-y-3 border border-blue-200">
+              <div className="bg-white rounded-lg p-3 sm:p-4 space-y-3 border border-blue-200">
                 <div>
                   <p className="text-xs font-semibold text-gray-800 mb-1">Pickup Location:</p>
                   <p className="text-xs font-bold" style={{ color: '#083A85' }}>Marcel Phones Shop</p>
@@ -432,10 +432,10 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           )}
 
           {/* Action Buttons */}
-          <div className="flex gap-3 pt-4 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-200">
             <button
               type="submit"
-              className="flex-1 text-white px-6 py-3 rounded-lg text-xs font-semibold hover:opacity-90 transition-all cursor-pointer shadow-lg"
+              className="flex-1 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer shadow-lg"
               style={{ backgroundColor: '#083A85' }}
             >
               Confirm Order
@@ -443,7 +443,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 rounded-lg text-xs font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
+              className="sm:flex-initial px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
               style={{ borderColor: '#083A85', color: '#083A85' }}
             >
               Cancel

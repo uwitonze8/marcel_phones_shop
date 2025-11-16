@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import ProductModal from '@/app/components/ProductModal';
-import { BsPhone, BsLaptop, BsTablet, BsSmartwatch, BsHeadphones, BsController, BsTruck, BsChatDots, BsCashCoin, BsShieldCheck, BsApple, BsPhoneFill, BsDisplay, BsPrinter, BsMusicNoteBeamed, BsKeyboard } from 'react-icons/bs';
+import OrderForm from '@/app/components/OrderForm';
 
 interface Product {
   id: number;
@@ -22,6 +22,8 @@ interface Product {
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const [productToOrder, setProductToOrder] = useState<Product | null>(null);
 
   // Product data
   const products: Product[] = [
@@ -181,13 +183,29 @@ export default function Home() {
     setSelectedProduct(null);
   };
 
+  const handleBuyNow = (product: Product) => {
+    setProductToOrder(product);
+    setIsOrderFormOpen(true);
+  };
+
+  const handleCloseOrderForm = () => {
+    setIsOrderFormOpen(false);
+    setProductToOrder(null);
+  };
+
+  const handleOrderSubmit = (formData: any) => {
+    console.log('Order submitted:', formData);
+    alert('Order placed successfully! We will contact you shortly.');
+    handleCloseOrderForm();
+  };
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden w-full">
       {/* Navigation */}
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden w-full">
+      <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] overflow-hidden w-full">
         {/* Background Image with overlay */}
         <div className="absolute inset-0 top-0">
           {/* Background Image */}
@@ -204,79 +222,79 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative h-full flex items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-5">
+          <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4 lg:space-y-5">
             {/* Badge */}
             <div className="inline-block">
-              <span className="text-white px-2.5 py-0.5 rounded-full text-xs font-semibold" style={{backgroundColor: '#083A85'}}>
+              <span className="text-white px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold" style={{backgroundColor: '#083A85'}}>
                 🎧 Learn about Marcel Electronics
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-4 sm:px-0">
               The leading electronics platform for global shoppers
             </h1>
 
             {/* Search Bar */}
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto px-2 sm:px-0">
               <div className="relative flex items-center bg-white rounded-full shadow-2xl overflow-hidden">
                 <input
                   type="text"
                   placeholder="Search for smartphones, laptops, accessories..."
-                  className="flex-1 px-5 py-2.5 text-xs text-black outline-none cursor-text"
+                  className="flex-1 px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs text-black outline-none cursor-text"
                 />
-                <button className="flex items-center gap-1.5 px-4 py-1.5 m-1 rounded-full text-white text-xs font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 m-1 rounded-full text-white text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                  Search
+                  <span className="hidden sm:inline">Search</span>
                 </button>
               </div>
             </div>
 
             {/* Frequently Searched */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-              <span className="text-white text-xs">Quick search:</span>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2 px-4 sm:px-0">
+              <span className="text-white text-[10px] sm:text-xs hidden sm:inline">Quick search:</span>
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 iPhone 15 Pro Max
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Samsung Galaxy
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 AirPods Pro
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 MacBook
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Gaming Laptops
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 4K Monitors
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Smart Watches
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Bluetooth Speakers
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer"  >
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 DSLR Cameras
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Wireless Headphones
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">     
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Gaming Consoles
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Smart Home Devices
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">   
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 External Hard Drives
               </button>
-              <button className="px-3 py-1 rounded-full border border-white/30 text-white text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Computer Monitors
               </button>
             </div>
@@ -285,7 +303,7 @@ export default function Home() {
 
         {/* Bottom wave decoration */}
         <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
-          <svg className="w-full h-16 md:h-20 text-white animate-wave block" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <svg className="w-full h-12 sm:h-16 md:h-20 text-white animate-wave block" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" fill="currentColor"/>
           </svg>
         </div>
@@ -310,106 +328,60 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* Featured Categories Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Shop by Category</h2>
-            <p className="text-xs text-black">Find exactly what you're looking for</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {/* Smartphones */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsPhone className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Smartphones</h3>
-                <p className="text-xs text-black/60 mt-1">500+ items</p>
-              </div>
-            </div>
-
-            {/* Laptops */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsLaptop className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Laptops</h3>
-                <p className="text-xs text-black/60 mt-1">350+ items</p>
-              </div>
-            </div>
-
-            {/* Tablets */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsTablet className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Tablets</h3>
-                <p className="text-xs text-black/60 mt-1">200+ items</p>
-              </div>
-            </div>
-
-            {/* Smart Watches */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsSmartwatch className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Smart Watches</h3>
-                <p className="text-xs text-black/60 mt-1">180+ items</p>
-              </div>
-            </div>
-
-            {/* Accessories */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsHeadphones className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Accessories</h3>
-                <p className="text-xs text-black/60 mt-1">600+ items</p>
-              </div>
-            </div>
-
-            {/* Gaming */}
-            <div className="group cursor-pointer bg-white border border-black/10 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105" style={{borderColor: '#083A85'}}>
-              <div className="text-center">
-                <BsController className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <h3 className="text-sm font-semibold text-black">Gaming</h3>
-                <p className="text-xs text-black/60 mt-1">250+ items</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products Section */}
-      <section className="py-12 bg-white">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Featured Products</h2>
-            <p className="text-xs text-black">Best deals on top electronics</p>
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-1 sm:mb-2">Featured Products</h2>
+            <p className="text-[10px] sm:text-xs text-black">Best deals on top electronics</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-6">
             {products.map((product) => (
-              <div key={product.id} className="group cursor-pointer bg-white border border-black/10 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative bg-gray-100 h-48 flex items-center justify-center">
+              <div key={product.id} className="group bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
+                {/* Product Image */}
+                <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 h-56 sm:h-48 lg:h-56 overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-contain p-4"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
-                  {product.badge && (
-                    <span className="absolute top-2 right-2 text-white px-2 py-1 rounded text-xs font-semibold" style={{backgroundColor: '#083A85'}}>
-                      {product.badge}
-                    </span>
-                  )}
                 </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-semibold text-black mb-1">{product.name}</h3>
-                  <p className="text-xs text-black/60 mb-2">{product.specs[0]}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-black">{product.price}</span>
+
+                {/* Product Info */}
+                <div className="p-4 sm:p-3 lg:p-4">
+                  {/* Product Name */}
+                  <h3 className="text-sm sm:text-xs lg:text-sm font-bold text-gray-900 mb-2 sm:mb-2 line-clamp-1">
+                    {product.name}
+                  </h3>
+
+                  {/* Price */}
+                  <div className="mb-3 sm:mb-3">
+                    <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#083A85'}}>
+                      {product.price}
+                    </p>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 sm:gap-2">
                     <button
                       onClick={() => handleViewProduct(product)}
-                      className="text-white px-3 py-1 rounded text-xs font-semibold hover:opacity-90 transition-all cursor-pointer"
-                      style={{backgroundColor: '#083A85'}}
+                      className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-xs sm:text-xs font-semibold border-2 transition-all duration-300 hover:bg-gray-50 cursor-pointer"
+                      style={{borderColor: '#083A85', color: '#083A85'}}
                     >
                       View
+                    </button>
+                    <button
+                      onClick={() => handleBuyNow(product)}
+                      className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-white text-xs sm:text-xs font-semibold transition-all duration-300 hover:opacity-90 cursor-pointer"
+                      style={{backgroundColor: '#083A85'}}
+                    >
+                      <span className="flex items-center justify-center gap-1 sm:gap-1">
+                        Buy Now
+                        <svg className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -417,116 +389,12 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-6 sm:mt-8">
             <a href="/user/product">
-            <button className="text-white px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
+            <button className="text-white px-5 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
               View All Products
             </button>
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-12" style={{backgroundColor: '#f8f9fa'}}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Why Choose Us</h2>
-            <p className="text-xs text-black">Your trusted electronics partner</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Free Shipping */}
-            <div className="text-center p-6 bg-white rounded-lg border border-black/10">
-              <BsTruck className="w-16 h-16 mx-auto mb-4" style={{color: '#083A85'}} />
-              <h3 className="text-sm font-semibold text-black mb-2">Free Shipping</h3>
-              <p className="text-xs text-black/60">On orders over $100</p>
-            </div>
-
-            {/* 24/7 Support */}
-            <div className="text-center p-6 bg-white rounded-lg border border-black/10">
-              <BsChatDots className="w-16 h-16 mx-auto mb-4" style={{color: '#083A85'}} />
-              <h3 className="text-sm font-semibold text-black mb-2">24/7 Support</h3>
-              <p className="text-xs text-black/60">Always here to help you</p>
-            </div>
-
-            {/* Money-Back Guarantee */}
-            <div className="text-center p-6 bg-white rounded-lg border border-black/10">
-              <BsCashCoin className="w-16 h-16 mx-auto mb-4" style={{color: '#083A85'}} />
-              <h3 className="text-sm font-semibold text-black mb-2">Money-Back Guarantee</h3>
-              <p className="text-xs text-black/60">30-day return policy</p>
-            </div>
-
-            {/* Secure Payment */}
-            <div className="text-center p-6 bg-white rounded-lg border border-black/10">
-              <BsShieldCheck className="w-16 h-16 mx-auto mb-4" style={{color: '#083A85'}} />
-              <h3 className="text-sm font-semibold text-black mb-2">Secure Payment</h3>
-              <p className="text-xs text-black/60">100% secure transactions</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Brands We Carry Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Brands We Carry</h2>
-            <p className="text-xs text-black">Top electronics brands worldwide</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {/* Apple */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsApple className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">Apple</p>
-              </div>
-            </div>
-
-            {/* Samsung */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsPhoneFill className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">Samsung</p>
-              </div>
-            </div>
-
-            {/* Dell */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsLaptop className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">Dell</p>
-              </div>
-            </div>
-
-            {/* HP */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsDisplay className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">HP</p>
-              </div>
-            </div>
-
-            {/* Sony */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsMusicNoteBeamed className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">Sony</p>
-              </div>
-            </div>
-
-            {/* Lenovo */}
-            <div className="flex items-center justify-center p-6 bg-white border border-black/10 rounded-lg hover:shadow-lg transition-all cursor-pointer">
-              <div className="text-center">
-                <BsKeyboard className="w-12 h-12 mx-auto mb-3" style={{color: '#083A85'}} />
-                <p className="text-xs font-semibold text-black">Lenovo</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-xs text-black/60">And many more trusted brands...</p>
           </div>
         </div>
       </section>
@@ -540,6 +408,17 @@ export default function Home() {
         onClose={handleCloseModal}
         product={selectedProduct}
       />
+
+      {/* Order Form */}
+      {productToOrder && (
+        <OrderForm
+          isOpen={isOrderFormOpen}
+          onClose={handleCloseOrderForm}
+          productName={productToOrder.name}
+          productPrice={productToOrder.price}
+          onSubmit={handleOrderSubmit}
+        />
+      )}
     </div>
   );
 }
