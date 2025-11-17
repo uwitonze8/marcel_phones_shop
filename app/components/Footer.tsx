@@ -33,9 +33,9 @@ export default function Footer() {
           <div className="text-left">
             <h4 className="font-bold mb-2 sm:mb-3 text-base sm:text-lg md:text-xl text-white">SHOP</h4>
             <ul className="space-y-1.5 sm:space-y-1.5 text-xs sm:text-sm md:text-l text-white/90">
-              <li><a href="" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Support</a></li>
-              <li><a href="" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Privacy Policy</a></li>
-              <li><a href="" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Terms of Service</a></li>
+              <li><a href="/user/support" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Support</a></li>
+              <li><a href="/user/privacy-policy" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Privacy Policy</a></li>
+              <li><a href="/user/terms-of-service" className="hover:opacity-80 hover:text-white transition cursor-pointer inline-block">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <i className="bi bi-geo-alt-fill mt-0.5 flex-shrink-0" aria-hidden="true"></i>
-                <span>kigali city, tajyire electronics, first floor</span>
+                <span>kigali city</span>
               </li>
             </ul>
           </div>

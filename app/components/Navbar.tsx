@@ -47,7 +47,7 @@ export default function Navbar() {
           <div className="py-4 space-y-3">
             <a href="/user/product" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>Products</a>
             <a href="/user/about" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>About</a>
-            <a href="" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            <a href="/user/contact_us" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>Contact</a>
             <a href="/user/product" className="block text-white px-4 py-2 rounded-lg text-center text-lg transition-all duration-300" style={{backgroundColor: '#083A85'}} onClick={() => setIsMenuOpen(false)}>
               Shop Now
             </a>
