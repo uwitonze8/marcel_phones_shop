@@ -12,6 +12,7 @@ interface Product {
   price: string;
   description: string;
   image: string;
+  images: string[];
   badge: string;
   specs: string[];
   rating: number;
@@ -33,6 +34,12 @@ export default function Home() {
       price: 'RWF 1,549,000',
       description: 'Experience the latest flagship smartphone from Apple with cutting-edge technology, stunning display, and powerful performance.',
       image: 'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
+      images: [
+        'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
+        'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80',
+        'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80',
+        'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80'
+      ],
       badge: 'New',
       specs: [
         'A17 Pro chip with 6-core GPU',
@@ -51,6 +58,12 @@ export default function Home() {
       price: 'RWF 2,585,000',
       description: 'Supercharged by M3 Pro chip for incredible performance. Perfect for professionals and creators.',
       image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80',
+        'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&q=80',
+        'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&q=80',
+        'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&q=80'
+      ],
       badge: 'Hot',
       specs: [
         'Apple M3 Pro chip',
@@ -69,6 +82,12 @@ export default function Home() {
       price: 'RWF 555,000',
       description: 'Your essential companion for a healthy life. Now with new features and advanced health tracking.',
       image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80',
+        'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=800&q=80',
+        'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&q=80',
+        'https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=800&q=80'
+      ],
       badge: 'Sale',
       specs: [
         'GPS + Cellular connectivity',
@@ -87,6 +106,12 @@ export default function Home() {
       price: 'RWF 257,000',
       description: 'Immersive sound with Active Noise Cancellation. Adaptive Audio for the perfect listening experience.',
       image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=800&q=80',
+        'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800&q=80',
+        'https://images.unsplash.com/photo-1588423771073-b8903fba77ac?w=800&q=80',
+        'https://images.unsplash.com/photo-1610438235354-a6ae5528385c?w=800&q=80'
+      ],
       badge: '-20%',
       specs: [
         'Active Noise Cancellation',
@@ -105,6 +130,12 @@ export default function Home() {
       price: 'RWF 1,680,000',
       description: 'AI-powered flagship phone with the most advanced camera system and S Pen for ultimate productivity.',
       image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
+        'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&q=80',
+        'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80',
+        'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80'
+      ],
       badge: 'New',
       specs: [
         'Snapdragon 8 Gen 3 processor',
@@ -123,6 +154,12 @@ export default function Home() {
       price: 'RWF 1,680,000',
       description: 'Premium ultraportable laptop with stunning InfinityEdge display and exceptional performance.',
       image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&q=80',
+        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
+        'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=80',
+        'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80'
+      ],
       badge: 'Popular',
       specs: [
         'Intel Core i7 13th Gen',
@@ -141,6 +178,12 @@ export default function Home() {
       price: 'RWF 1,420,000',
       description: 'The ultimate iPad experience with M2 chip. Perfect for creativity and productivity on the go.',
       image: 'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
+      images: [
+        'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=800&q=80',
+        'https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800&q=80'
+      ],
       badge: 'Hot',
       specs: [
         'Apple M2 chip',
@@ -159,6 +202,12 @@ export default function Home() {
       price: 'RWF 438,000',
       description: 'Industry-leading noise cancellation with exceptional sound quality and all-day comfort.',
       image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800&q=80',
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&q=80',
+        'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80'
+      ],
       badge: '-15%',
       specs: [
         'Industry-leading noise cancellation',
