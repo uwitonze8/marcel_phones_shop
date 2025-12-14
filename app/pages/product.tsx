@@ -13,6 +13,7 @@ interface Product {
   price: string;
   description: string;
   image: string;
+  images: string[];
   specs: string[];
   inStock: boolean;
   category: string;
@@ -38,6 +39,12 @@ export default function ProductPage() {
       price: 'RWF 1,549,000',
       description: 'Experience the latest flagship smartphone from Apple with cutting-edge technology, stunning display, and powerful performance.',
       image: 'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
+      images: [
+        'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
+        'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80',
+        'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80',
+        'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80'
+      ],
       specs: [
         'A17 Pro chip with 6-core GPU',
         '6.7-inch Super Retina XDR display',
@@ -54,6 +61,12 @@ export default function ProductPage() {
       price: 'RWF 2,585,000',
       description: 'Supercharged by M3 Pro chip for incredible performance. Perfect for professionals and creators.',
       image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80',
+        'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&q=80',
+        'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&q=80',
+        'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&q=80'
+      ],
       specs: [
         'Apple M3 Pro chip',
         '18GB Unified Memory',
@@ -70,6 +83,12 @@ export default function ProductPage() {
       price: 'RWF 555,000',
       description: 'Your essential companion for a healthy life. Now with new features and advanced health tracking.',
       image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80',
+        'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=800&q=80',
+        'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&q=80',
+        'https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=800&q=80'
+      ],
       specs: [
         'GPS + Cellular connectivity',
         '45mm Always-On Retina display',
@@ -86,6 +105,12 @@ export default function ProductPage() {
       price: 'RWF 257,000',
       description: 'Immersive sound with Active Noise Cancellation. Adaptive Audio for the perfect listening experience.',
       image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=800&q=80',
+        'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800&q=80',
+        'https://images.unsplash.com/photo-1588423771073-b8903fba77ac?w=800&q=80',
+        'https://images.unsplash.com/photo-1610438235354-a6ae5528385c?w=800&q=80'
+      ],
       specs: [
         'Active Noise Cancellation',
         'Adaptive Audio',
@@ -102,6 +127,12 @@ export default function ProductPage() {
       price: 'RWF 1,680,000',
       description: 'AI-powered flagship phone with the most advanced camera system and S Pen for ultimate productivity.',
       image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
+        'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&q=80',
+        'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80',
+        'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80'
+      ],
       specs: [
         'Snapdragon 8 Gen 3 processor',
         '6.8-inch Dynamic AMOLED 2X display',
@@ -118,6 +149,12 @@ export default function ProductPage() {
       price: 'RWF 1,680,000',
       description: 'Premium ultraportable laptop with stunning InfinityEdge display and exceptional performance.',
       image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&q=80',
+        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
+        'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=80',
+        'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80'
+      ],
       specs: [
         'Intel Core i7 13th Gen',
         '16GB LPDDR5 RAM',
@@ -134,6 +171,12 @@ export default function ProductPage() {
       price: 'RWF 1,420,000',
       description: 'The ultimate iPad experience with M2 chip. Perfect for creativity and productivity on the go.',
       image: 'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
+      images: [
+        'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=800&q=80',
+        'https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800&q=80'
+      ],
       specs: [
         'Apple M2 chip',
         '12.9-inch Liquid Retina XDR display',
@@ -150,6 +193,12 @@ export default function ProductPage() {
       price: 'RWF 438,000',
       description: 'Industry-leading noise cancellation with exceptional sound quality and all-day comfort.',
       image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800&q=80',
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&q=80',
+        'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80'
+      ],
       specs: [
         'Industry-leading noise cancellation',
         '30-hour battery life',
@@ -166,6 +215,12 @@ export default function ProductPage() {
       price: 'RWF 1,320,000',
       description: 'Google AI at its best. Incredible photography and seamless Android experience.',
       image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
+        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80',
+        'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80',
+        'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80'
+      ],
       specs: [
         'Google Tensor G3 chip',
         '6.7-inch LTPO OLED display',
@@ -182,6 +237,12 @@ export default function ProductPage() {
       price: 'RWF 1,890,000',
       description: 'Convertible 2-in-1 laptop with stunning design and powerful performance for work and play.',
       image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80',
+        'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80',
+        'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80',
+        'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=800&q=80'
+      ],
       specs: [
         'Intel Core i7 13th Gen',
         '16GB LPDDR4x RAM',
@@ -198,6 +259,12 @@ export default function ProductPage() {
       price: 'RWF 485,000',
       description: 'Advanced health tracking meets sleek design. Your perfect fitness companion.',
       image: 'https://images.unsplash.com/photo-1579721840641-7d0e67f1204e?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1579721840641-7d0e67f1204e?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&q=80',
+        'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=800&q=80'
+      ],
       specs: [
         'Wear OS powered by Samsung',
         '44mm Super AMOLED display',
@@ -214,6 +281,12 @@ export default function ProductPage() {
       price: 'RWF 890,000',
       description: 'Premium Android tablet with S Pen included. Perfect for productivity and entertainment.',
       image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=800&q=80',
+        'https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=800&q=80',
+        'https://images.unsplash.com/photo-1632634323650-6c5ea6d8e7d1?w=800&q=80',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80'
+      ],
       specs: [
         'Snapdragon 8 Gen 2 processor',
         '11-inch Dynamic AMOLED 2X display',
@@ -230,6 +303,12 @@ export default function ProductPage() {
       price: 'RWF 520,000',
       description: 'Premium wireless headphones with world-class noise cancellation and immersive audio.',
       image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=80',
+        'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800&q=80',
+        'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&q=80',
+        'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=800&q=80'
+      ],
       specs: [
         'CustomTune technology',
         'Immersive Audio mode',
@@ -246,6 +325,12 @@ export default function ProductPage() {
       price: 'RWF 2,180,000',
       description: 'Compact gaming powerhouse with AMD Ryzen and NVIDIA RTX graphics.',
       image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800&q=80',
+        'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&q=80',
+        'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800&q=80',
+        'https://images.unsplash.com/photo-1625842268584-8f3296236761?w=800&q=80'
+      ],
       specs: [
         'AMD Ryzen 9 7940HS',
         'NVIDIA RTX 4060 8GB',
@@ -262,6 +347,12 @@ export default function ProductPage() {
       price: 'RWF 1,120,000',
       description: 'Flagship killer with blazing fast performance and stunning camera system.',
       image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80',
+        'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
+        'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80',
+        'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80'
+      ],
       specs: [
         'Snapdragon 8 Gen 3',
         '6.82-inch AMOLED 120Hz',
@@ -278,6 +369,12 @@ export default function ProductPage() {
       price: 'RWF 780,000',
       description: 'Premium multisport GPS watch for serious athletes and outdoor enthusiasts.',
       image: 'https://images.unsplash.com/photo-1557438159-51eec7a6c9e8?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1557438159-51eec7a6c9e8?w=800&q=80',
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+        'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&q=80',
+        'https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&q=80'
+      ],
       specs: [
         'Multi-GNSS satellite support',
         'Advanced training metrics',
@@ -294,6 +391,12 @@ export default function ProductPage() {
       price: 'RWF 1,550,000',
       description: 'Versatile 2-in-1 device combining tablet portability with laptop power.',
       image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80',
+        'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80',
+        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80',
+        'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=800&q=80'
+      ],
       specs: [
         'Intel Core i7 12th Gen',
         '13-inch PixelSense touchscreen',
@@ -310,6 +413,12 @@ export default function ProductPage() {
       price: 'RWF 185,000',
       description: 'Portable Bluetooth speaker with powerful sound and built-in power bank.',
       image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80',
+      images: [
+        'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80',
+        'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&q=80',
+        'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=800&q=80',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'
+      ],
       specs: [
         'JBL Pro Sound',
         '20 hours of playtime',

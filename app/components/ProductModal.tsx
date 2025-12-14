@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsX, BsCheck } from 'react-icons/bs';
 import OrderForm from './OrderForm';
 import SuccessModal from './SuccessModal';
@@ -11,6 +11,7 @@ interface Product {
   price: string;
   description: string;
   image: string;
+  images: string[];
   specs: string[];
   inStock: boolean;
 }
@@ -25,8 +26,21 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [orderData, setOrderData] = useState<any>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  // Reset selected image when product changes
+  useEffect(() => {
+    if (product) {
+      setSelectedImageIndex(0);
+    }
+  }, [product?.id]);
 
   if (!isOpen || !product) return null;
+
+  // Use images array if available, otherwise fall back to single image
+  const productImages = product.images && product.images.length > 0
+    ? product.images
+    : [product.image];
 
   const handleOrderNow = () => {
     setShowOrderForm(true);
@@ -67,15 +81,39 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
         </button>
 
         <div className="grid md:grid-cols-2 gap-8 p-8">
-          {/* Left Side - Product Image */}
+          {/* Left Side - Product Images Gallery */}
           <div className="relative">
-            <div className="bg-gray-100 rounded-xl p-8 flex items-center justify-center">
+            {/* Main Image */}
+            <div className="bg-gray-100 rounded-xl p-6 flex items-center justify-center mb-4">
               <img
-                src={product.image}
+                src={productImages[selectedImageIndex]}
                 alt={product.name}
-                className="w-full h-full object-contain max-h-96"
+                className="w-full h-full object-contain max-h-80"
               />
             </div>
+
+            {/* Thumbnail Images */}
+            {productImages.length > 1 && (
+              <div className="grid grid-cols-4 gap-2">
+                {productImages.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImageIndex(index)}
+                    className={`bg-gray-100 rounded-lg p-2 flex items-center justify-center cursor-pointer transition-all duration-200 ${
+                      selectedImageIndex === index
+                        ? 'ring-2 ring-[#083A85] ring-offset-2'
+                        : 'hover:bg-gray-200'
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`${product.name} view ${index + 1}`}
+                      className="w-full h-16 object-cover rounded"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Right Side - Product Details */}
