@@ -139,7 +139,7 @@ export default function SetupGuidesContent() {
                   ? 'text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={activeCategory === 'all' ? { backgroundColor: '#083A85' } : {}}
+              style={activeCategory === 'all' ? { backgroundColor: '#F97316' } : {}}
             >
               All Guides
             </button>
@@ -150,7 +150,7 @@ export default function SetupGuidesContent() {
                   ? 'text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={activeCategory === 'smartphone' ? { backgroundColor: '#083A85' } : {}}
+              style={activeCategory === 'smartphone' ? { backgroundColor: '#F97316' } : {}}
             >
               Smartphones
             </button>
@@ -161,7 +161,7 @@ export default function SetupGuidesContent() {
                   ? 'text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={activeCategory === 'laptop' ? { backgroundColor: '#083A85' } : {}}
+              style={activeCategory === 'laptop' ? { backgroundColor: '#F97316' } : {}}
             >
               Laptops
             </button>
@@ -172,7 +172,7 @@ export default function SetupGuidesContent() {
                   ? 'text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={activeCategory === 'accessories' ? { backgroundColor: '#083A85' } : {}}
+              style={activeCategory === 'accessories' ? { backgroundColor: '#F97316' } : {}}
             >
               Accessories
             </button>
@@ -195,7 +195,7 @@ export default function SetupGuidesContent() {
                       className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}
                     >
-                      <Icon className="text-xl" style={{ color: '#083A85' }} />
+                      <Icon className="text-xl" style={{ color: '#F97316' }} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 mb-1">{guide.title}</h3>
@@ -209,7 +209,7 @@ export default function SetupGuidesContent() {
                       <div key={index} className="flex items-start gap-3">
                         <BsCheckCircleFill
                           className="text-sm mt-1 flex-shrink-0"
-                          style={{ color: '#083A85' }}
+                          style={{ color: '#F97316' }}
                         />
                         <p className="text-sm text-gray-700">{step}</p>
                       </div>
@@ -220,14 +220,14 @@ export default function SetupGuidesContent() {
                   <div className="flex gap-2 pt-4 border-t border-gray-100">
                     <button
                       className="flex-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:opacity-90 transition-all"
-                      style={{ backgroundColor: '#083A85' }}
+                      style={{ backgroundColor: '#F97316' }}
                     >
                       <span className="flex items-center justify-center gap-2">
                         <FaVideo />
                         Watch Video
                       </span>
                     </button>
-                    <button className="flex-1 px-4 py-2 rounded-lg text-sm font-medium border-2 hover:bg-gray-50 transition-all" style={{ borderColor: '#083A85', color: '#083A85' }}>
+                    <button className="flex-1 px-4 py-2 rounded-lg text-sm font-medium border-2 hover:bg-gray-50 transition-all" style={{ borderColor: '#F97316', color: '#F97316' }}>
                       <span className="flex items-center justify-center gap-2">
                         <FaDownload />
                         PDF Guide
@@ -252,19 +252,19 @@ export default function SetupGuidesContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <a href="/user/support" className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all text-center">
-                <FaBook className="text-3xl mx-auto mb-3" style={{ color: '#083A85' }} />
+                <FaBook className="text-3xl mx-auto mb-3" style={{ color: '#F97316' }} />
                 <h3 className="font-bold text-gray-900 mb-2">Support Center</h3>
                 <p className="text-sm text-gray-600">Visit our comprehensive support center</p>
               </a>
 
               <a href="/user/contact_us" className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all text-center">
-                <FaVideo className="text-3xl mx-auto mb-3" style={{ color: '#083A85' }} />
+                <FaVideo className="text-3xl mx-auto mb-3" style={{ color: '#F97316' }} />
                 <h3 className="font-bold text-gray-900 mb-2">Video Tutorials</h3>
                 <p className="text-sm text-gray-600">Watch detailed setup tutorials</p>
               </a>
 
               <a href="/user/contact_us" className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all text-center">
-                <FaHeadphones className="text-3xl mx-auto mb-3" style={{ color: '#083A85' }} />
+                <FaHeadphones className="text-3xl mx-auto mb-3" style={{ color: '#F97316' }} />
                 <h3 className="font-bold text-gray-900 mb-2">Contact Support</h3>
                 <p className="text-sm text-gray-600">Get help from our expert team</p>
               </a>

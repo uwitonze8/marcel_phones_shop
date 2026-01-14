@@ -21,12 +21,12 @@ export default function Navbar() {
             <span className="text-xl font-bold text-black font-poppins">Marcel Electronics</span>
           </a>
           <div className="hidden md:flex space-x-6">
-            <a href="/user/product" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#083A85'} as React.CSSProperties}>Products</a>
-            <a href="/user/about" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#083A85'} as React.CSSProperties}>About</a>
-            <a href="/user/contact_us" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#083A85'} as React.CSSProperties}>Contact</a>
+            <a href="/user/product" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#F97316'} as React.CSSProperties}>Products</a>
+            <a href="/user/about" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#F97316'} as React.CSSProperties}>About</a>
+            <a href="/user/contact_us" className="text-xl text-black transition hover:opacity-80 cursor-pointer" style={{'--hover-color': '#F97316'} as React.CSSProperties}>Contact</a>
           </div>
 
-          <a href="/user/product" className="hidden md:inline-block text-white px-4 py-1.5 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 text-xl cursor-pointer" style={{backgroundColor: '#083A85'}}>
+          <a href="/user/product" className="hidden md:inline-block text-white px-4 py-1.5 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 text-xl cursor-pointer" style={{backgroundColor: '#F97316'}}>
             Shop Now
           </a>
 
@@ -48,7 +48,7 @@ export default function Navbar() {
             <a href="/user/product" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>Products</a>
             <a href="/user/about" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>About</a>
             <a href="/user/contact_us" className="block text-lg text-black hover:opacity-80 transition py-2" onClick={() => setIsMenuOpen(false)}>Contact</a>
-            <a href="/user/product" className="block text-white px-4 py-2 rounded-lg text-center text-lg transition-all duration-300" style={{backgroundColor: '#083A85'}} onClick={() => setIsMenuOpen(false)}>
+            <a href="/user/product" className="block text-white px-4 py-2 rounded-lg text-center text-lg transition-all duration-300" style={{backgroundColor: '#F97316'}} onClick={() => setIsMenuOpen(false)}>
               Shop Now
             </a>
           </div>

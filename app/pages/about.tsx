@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] overflow-hidden w-full bg-gradient-to-br from-white via-gray-50 to-white">
         {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-orange-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
         {/* Content */}
@@ -24,11 +24,11 @@ export default function AboutPage() {
             <div className="flex items-center justify-center order-2 md:order-1 animate-fade-in-left">
               <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
                 {/* Outer decorative rings */}
-                <div className="absolute inset-0 rounded-full border border-blue-100 sm:border-2 md:border-4 animate-ping-slow opacity-20"></div>
-                <div className="absolute inset-3 xs:inset-4 sm:inset-8 rounded-full border border-blue-200 sm:border-2 animate-pulse-ring opacity-30"></div>
+                <div className="absolute inset-0 rounded-full border border-orange-100 sm:border-2 md:border-4 animate-ping-slow opacity-20"></div>
+                <div className="absolute inset-3 xs:inset-4 sm:inset-8 rounded-full border border-orange-200 sm:border-2 animate-pulse-ring opacity-30"></div>
 
                 {/* Main logo container */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-gray-50 rounded-full animate-float shadow-lg sm:shadow-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-gray-50 rounded-full animate-float shadow-lg sm:shadow-xl"></div>
                 <div className="absolute inset-2 xs:inset-3 sm:inset-6 bg-white rounded-full shadow-xl sm:shadow-2xl flex items-center justify-center overflow-hidden border border-gray-100 sm:border-2 md:border-4">
                   <img
                     src="/flyer.png"
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <div className="space-y-3 xs:space-y-4 sm:space-y-6 md:space-y-7 order-1 md:order-2 animate-fade-in-right text-center md:text-left">
               {/* Badge */}
               <div className="inline-block">
-                <span className="px-3 py-1.5 xs:px-4 xs:py-2 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white shadow-lg sm:shadow-xl backdrop-blur-sm hover:scale-105 transition-transform duration-300" style={{backgroundColor: '#083A85'}}>
+                <span className="px-3 py-1.5 xs:px-4 xs:py-2 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white shadow-lg sm:shadow-xl backdrop-blur-sm hover:scale-105 transition-transform duration-300" style={{backgroundColor: '#F97316'}}>
                  Dominated Since 2020
                 </span>
               </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
                 <span className="block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Empowering Rwanda
                 </span>
-                <span className="block mt-1 xs:mt-1.5 sm:mt-2 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+                <span className="block mt-1 xs:mt-1.5 sm:mt-2 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent">
                   Through Technology
                 </span>
               </h1>
@@ -64,8 +64,8 @@ export default function AboutPage() {
               </p>
 
               {/* Mission Statement */}
-              <div className="p-2.5 xs:p-3 sm:p-5 bg-blue-50 border-l-3 sm:border-l-4 rounded-r-lg" style={{borderColor: '#083A85'}}>
-                <p className="text-xs xs:text-sm sm:text-lg md:text-xl font-bold" style={{color: '#083A85'}}>
+              <div className="p-2.5 xs:p-3 sm:p-5 bg-orange-50 border-l-3 sm:border-l-4 rounded-r-lg" style={{borderColor: '#F97316'}}>
+                <p className="text-xs xs:text-sm sm:text-lg md:text-xl font-bold" style={{color: '#F97316'}}>
                   Our mission: Making cutting-edge technology accessible to everyone.
                 </p>
               </div>
@@ -250,7 +250,7 @@ export default function AboutPage() {
       {/* Core Values Section */}
       <section className="relative py-6 xs:py-7 sm:py-8 md:py-12 lg:py-14 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-0 left-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-orange-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute bottom-0 right-0 w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
         <div className="relative max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
@@ -261,28 +261,28 @@ export default function AboutPage() {
                 {/* Decorative circles with icons */}
                 <div className="grid grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6">
                   <div className="bg-white p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg xs:rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#083A85'}}>
+                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#F97316'}}>
                       <BsShieldCheck className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <h4 className="text-[10px] xs:text-xs sm:text-sm md:text-base font-bold text-gray-900 text-center">Integrity</h4>
                   </div>
 
                   <div className="bg-white p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg xs:rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#083A85'}}>
+                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#F97316'}}>
                       <BsLightning className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <h4 className="text-[10px] xs:text-xs sm:text-sm md:text-base font-bold text-gray-900 text-center">Innovation</h4>
                   </div>
 
                   <div className="bg-white p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg xs:rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#083A85'}}>
+                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#F97316'}}>
                       <BsPeople className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <h4 className="text-[10px] xs:text-xs sm:text-sm md:text-base font-bold text-gray-900 text-center">Customer First</h4>
                   </div>
 
                   <div className="bg-white p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg xs:rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#083A85'}}>
+                    <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: '#F97316'}}>
                       <BsTrophy className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <h4 className="text-[10px] xs:text-xs sm:text-sm md:text-base font-bold text-gray-900 text-center">Excellence</h4>
@@ -301,7 +301,7 @@ export default function AboutPage() {
 
               <div className="space-y-2.5 xs:space-y-3 sm:space-y-4 md:space-y-5">
                 <div className="flex items-start gap-2.5 xs:gap-3 sm:gap-4">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#083A85'}}>
+                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#F97316'}}>
                     <BsShieldCheck className="w-4 h-4 xs:w-5 xs:h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -313,7 +313,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="flex items-start gap-2.5 xs:gap-3 sm:gap-4">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#083A85'}}>
+                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#F97316'}}>
                     <BsLightning className="w-4 h-4 xs:w-5 xs:h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -325,7 +325,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="flex items-start gap-2.5 xs:gap-3 sm:gap-4">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#083A85'}}>
+                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#F97316'}}>
                     <BsPeople className="w-4 h-4 xs:w-5 xs:h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -337,7 +337,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="flex items-start gap-2.5 xs:gap-3 sm:gap-4">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#083A85'}}>
+                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#F97316'}}>
                     <BsTrophy className="w-4 h-4 xs:w-5 xs:h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -447,14 +447,14 @@ export default function AboutPage() {
             <a
               href="/user/product"
               className="w-full xs:w-auto inline-block text-white px-5 py-2 xs:px-6 xs:py-2.5 sm:px-7 sm:py-3 md:px-8 md:py-3 rounded-lg text-sm xs:text-base sm:text-lg font-semibold hover:opacity-90 transition-all shadow-lg"
-              style={{backgroundColor: '#083A85'}}
+              style={{backgroundColor: '#F97316'}}
             >
               Shop Now
             </a>
             <a
               href="/"
               className="w-full xs:w-auto inline-block border-2 px-5 py-2 xs:px-6 xs:py-2.5 sm:px-7 sm:py-3 md:px-8 md:py-3 rounded-lg text-sm xs:text-base sm:text-lg font-semibold transition-all text-gray-900 hover:bg-gray-100"
-              style={{borderColor: '#083A85'}}
+              style={{borderColor: '#F97316'}}
             >
               Contact Us
             </a>

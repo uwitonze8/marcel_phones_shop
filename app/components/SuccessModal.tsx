@@ -29,7 +29,7 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
       <div className="relative bg-linear-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-2xl max-w-lg w-full animate-scaleIn overflow-hidden">
         {/* Decorative Background Pattern */}
         <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 bg-green-100 rounded-full opacity-20 blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 opacity-20 blur-3xl -z-10" style={{ backgroundColor: '#083A85' }}></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 opacity-20 blur-3xl -z-10" style={{ backgroundColor: '#F97316' }}></div>
 
         {/* Close Button */}
         <button
@@ -61,7 +61,7 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
 
           {/* Thank You Message with Customer Name */}
           <div className={`transition-all duration-700 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h2 className="text-base sm:text-lg font-bold mb-1 sm:mb-1.5 bg-linear-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
+            <h2 className="text-base sm:text-lg font-bold mb-1 sm:mb-1.5 bg-linear-to-r from-gray-900 to-gray-800 bg-clip-text text-transparent">
               Order Confirmed!
             </h2>
 
@@ -118,19 +118,19 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
             </div>
 
             {/* Notification Info - Ultra Compact */}
-            <div className="bg-linear-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-2 mb-2 sm:mb-3 shadow-sm">
+            <div className="bg-linear-to-r from-orange-50 to-indigo-50 border-2 border-orange-200 rounded-lg p-2 mb-2 sm:mb-3 shadow-sm">
               <h4 className="text-xs sm:text-sm font-bold text-gray-800 mb-1 flex items-center justify-center gap-1">
                 <span className="text-sm">📬</span> You'll Receive Notifications
               </h4>
               <div className="space-y-0.5">
                 <div className="flex items-center gap-1.5 bg-white/70 rounded p-1">
-                  <BsEnvelopeFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 shrink-0" />
+                  <BsEnvelopeFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-orange-600 shrink-0" />
                     <p className="text-xs sm:text-sm text-gray-700 text-left">
                     <span className="font-semibold">Email:</span> Confirmation sent to inbox
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white/70 rounded p-1">
-                  <BsChatDotsFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 shrink-0" />
+                  <BsChatDotsFill className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-orange-600 shrink-0" />
                   <p className="text-xs sm:text-sm text-gray-700 text-left">
                     <span className="font-semibold">SMS:</span> Order status updates
                   </p>
@@ -141,7 +141,7 @@ export default function SuccessModal({ isOpen, onClose, customerName, deliveryOp
             {/* Action Button - Ultra Compact */}
             <button
               onClick={onClose}
-              className="w-full text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold hover:scale-105 transition-all cursor-pointer shadow-lg bg-linear-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600"
+              className="w-full text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold hover:scale-105 transition-all cursor-pointer shadow-lg bg-linear-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-orange-600"
             >
               Continue Shopping
             </button>

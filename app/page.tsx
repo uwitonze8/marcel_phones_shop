@@ -274,7 +274,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4 lg:space-y-5">
             {/* Badge */}
             <div className="inline-block">
-              <span className="text-white px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold" style={{backgroundColor: '#083A85'}}>
+              <span className="text-white px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold" style={{backgroundColor: '#F97316'}}>
                 🎧 Learn about Marcel Electronics
               </span>
             </div>
@@ -292,7 +292,7 @@ export default function Home() {
                   placeholder="Search for smartphones, laptops, accessories..."
                   className="flex-1 px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs text-black outline-none cursor-text"
                 />
-                <button className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 m-1 rounded-full text-white text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
+                <button className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 m-1 rounded-full text-white text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#F97316'}}>
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
@@ -406,7 +406,7 @@ export default function Home() {
 
                   {/* Price */}
                   <div className="mb-3 sm:mb-3">
-                    <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#083A85'}}>
+                    <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#F97316'}}>
                       {product.price}
                     </p>
                   </div>
@@ -416,14 +416,14 @@ export default function Home() {
                     <button
                       onClick={() => handleViewProduct(product)}
                       className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-xs sm:text-xs font-semibold border-2 transition-all duration-300 hover:bg-gray-50 cursor-pointer"
-                      style={{borderColor: '#083A85', color: '#083A85'}}
+                      style={{borderColor: '#F97316', color: '#F97316'}}
                     >
                       View
                     </button>
                     <button
                       onClick={() => handleBuyNow(product)}
                       className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-white text-xs sm:text-xs font-semibold transition-all duration-300 hover:opacity-90 cursor-pointer"
-                      style={{backgroundColor: '#083A85'}}
+                      style={{backgroundColor: '#F97316'}}
                     >
                       <span className="flex items-center justify-center gap-1 sm:gap-1">
                         Buy Now
@@ -440,7 +440,7 @@ export default function Home() {
 
           <div className="text-center mt-6 sm:mt-8">
             <a href="/user/product">
-            <button className="text-white px-5 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#083A85'}}>
+            <button className="text-white px-5 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#F97316'}}>
               View All Products
             </button>
             </a>

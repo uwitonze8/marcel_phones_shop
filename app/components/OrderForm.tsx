@@ -114,7 +114,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           <h2 className="text-lg sm:text-xl font-bold text-black mb-2 pr-8">Complete Your Order</h2>
           <div className="flex items-center justify-between flex-wrap gap-2">
             <p className="text-xs sm:text-sm text-gray-600">{productName}</p>
-            <p className="text-xs sm:text-sm font-bold" style={{ color: '#083A85' }}>{productPrice}</p>
+            <p className="text-xs sm:text-sm font-bold" style={{ color: '#F97316' }}>{productPrice}</p>
           </div>
         </div>
 
@@ -129,12 +129,12 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                 onClick={() => setFormData(prev => ({ ...prev, deliveryOption: 'delivery' }))}
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-lg border-2 transition-all cursor-pointer ${
                   formData.deliveryOption === 'delivery'
-                    ? 'border-[#083A85] bg-blue-50'
+                    ? 'border-[#F97316] bg-orange-50'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
-                <BsTruck className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-600'}`} />
-                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'delivery' ? 'text-[#083A85]' : 'text-gray-700'}`}>
+                <BsTruck className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'delivery' ? 'text-[#F97316]' : 'text-gray-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'delivery' ? 'text-[#F97316]' : 'text-gray-700'}`}>
                   Home Delivery
                 </span>
               </button>
@@ -143,12 +143,12 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                 onClick={() => setFormData(prev => ({ ...prev, deliveryOption: 'pickup' }))}
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-lg border-2 transition-all cursor-pointer ${
                   formData.deliveryOption === 'pickup'
-                    ? 'border-[#083A85] bg-blue-50'
+                    ? 'border-[#F97316] bg-orange-50'
                     : 'border-gray-300 hover:border-gray-400'
                 }`}
               >
-                <BsShop className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-600'}`} />
-                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'pickup' ? 'text-[#083A85]' : 'text-gray-700'}`}>
+                <BsShop className={`w-4 h-4 sm:w-5 sm:h-5 ${formData.deliveryOption === 'pickup' ? 'text-[#F97316]' : 'text-gray-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold ${formData.deliveryOption === 'pickup' ? 'text-[#F97316]' : 'text-gray-700'}`}>
                   Store Pickup
                 </span>
               </button>
@@ -158,7 +158,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           {/* Personal Information */}
           <div>
             <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
-              <BsPersonFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
+              <BsPersonFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#F97316' }} />
               Personal Information
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
@@ -171,7 +171,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                     errors.firstName ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Marcel"
@@ -188,7 +188,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                     errors.lastName ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="phoneshop"
@@ -204,7 +204,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                     errors.gender ? 'border-red-500' : 'border-gray-300'
                   }`}
                 >
@@ -220,7 +220,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           {/* Contact Information */}
           <div>
             <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
-              <BsEnvelopeFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
+              <BsEnvelopeFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#F97316' }} />
               Contact Information
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
@@ -233,7 +233,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="info@marcelelectronics.com"
@@ -250,7 +250,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                  className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="+250 7XX XXX XXX"
@@ -264,7 +264,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           {formData.deliveryOption === 'delivery' && (
             <div>
               <h3 className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-3 flex items-center gap-2">
-                <BsGeoAltFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
+                <BsGeoAltFill className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#F97316' }} />
                 Delivery Address
               </h3>
               <div className="space-y-3 sm:space-y-4">
@@ -277,7 +277,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                     name="streetAddress"
                     value={formData.streetAddress}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                    className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                       errors.streetAddress ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="kk 123 St 456"
@@ -294,7 +294,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                     name="apartment"
                     value={formData.apartment}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
                     placeholder="Apt 4B, Building 2"
                   />
                 </div>
@@ -309,7 +309,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                         errors.city ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="kigali"
@@ -326,7 +326,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                         errors.state ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Gasabo"
@@ -345,7 +345,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                       name="postalCode"
                       value={formData.postalCode}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                         errors.postalCode ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="00000"
@@ -362,7 +362,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all ${
+                      className={`w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all ${
                         errors.country ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Rwanda"
@@ -380,7 +380,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
                     value={formData.deliveryInstructions}
                     onChange={handleChange}
                     rows={3}
-                    className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-3 py-2 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none"
                     placeholder="e.g., Leave at front door, Ring bell twice"
                   />
                 </div>
@@ -390,16 +390,16 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
 
           {/* Pickup Information */}
           {formData.deliveryOption === 'pickup' && (
-            <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-3 sm:p-5 space-y-3">
+            <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-3 sm:p-5 space-y-3">
               <h3 className="text-xs sm:text-sm font-bold text-black mb-2 sm:mb-3 flex items-center gap-2">
-                <BsShop className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#083A85' }} />
+                <BsShop className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#F97316' }} />
                 Store Pickup Information
               </h3>
 
-              <div className="bg-white rounded-lg p-3 sm:p-4 space-y-3 border border-blue-200">
+              <div className="bg-white rounded-lg p-3 sm:p-4 space-y-3 border border-orange-200">
                 <div>
                   <p className="text-xs font-semibold text-gray-800 mb-1">Pickup Location:</p>
-                  <p className="text-xs font-bold" style={{ color: '#083A85' }}>Marcel Phones Shop</p>
+                  <p className="text-xs font-bold" style={{ color: '#F97316' }}>Marcel Phones Shop</p>
                   <p className="text-xs text-gray-700">kigal city</p>
                   <p className="text-xs text-gray-700">1st floor,Makuza peace plaza</p>
                 </div>
@@ -436,7 +436,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
             <button
               type="submit"
               className="flex-1 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer shadow-lg"
-              style={{ backgroundColor: '#083A85' }}
+              style={{ backgroundColor: '#F97316' }}
             >
               Confirm Order
             </button>
@@ -444,7 +444,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
               type="button"
               onClick={onClose}
               className="sm:flex-initial px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
-              style={{ borderColor: '#083A85', color: '#083A85' }}
+              style={{ borderColor: '#F97316', color: '#F97316' }}
             >
               Cancel
             </button>
