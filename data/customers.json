@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cust_1",
+    "name": "Jean Baptiste",
+    "email": "jean@example.com",
+    "phone": "+250788123456",
+    "totalOrders": 1,
+    "totalSpent": 1850000,
+    "createdAt": "2024-12-24T10:00:00.000Z",
+    "lastOrderDate": "2024-12-24T10:00:00.000Z"
+  },
+  {
+    "id": "cust_2",
+    "name": "Marie Claire",
+    "email": "marie@example.com",
+    "phone": "+250788234567",
+    "totalOrders": 1,
+    "totalSpent": 2450000,
+    "createdAt": "2024-12-24T11:00:00.000Z",
+    "lastOrderDate": "2024-12-24T11:00:00.000Z"
+  },
+  {
+    "id": "cust_3",
+    "name": "Patrick Mugabo",
+    "email": "patrick@example.com",
+    "phone": "+250788345678",
+    "totalOrders": 1,
+    "totalSpent": 650000,
+    "createdAt": "2024-12-23T09:00:00.000Z",
+    "lastOrderDate": "2024-12-23T09:00:00.000Z"
+  }
+]

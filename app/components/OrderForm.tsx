@@ -23,11 +23,15 @@ interface OrderFormProps {
   isOpen: boolean;
   onClose: () => void;
   productName: string;
-  productPrice: string;
+  productPrice: number;
   onSubmit: (formData: OrderFormData) => void;
 }
 
 export default function OrderForm({ isOpen, onClose, productName, productPrice, onSubmit }: OrderFormProps) {
+  // Format price to RWF currency
+  const formatPrice = (price: number) => {
+    return `RWF ${price.toLocaleString('en-US')}`;
+  };
   const [formData, setFormData] = useState<OrderFormData>({
     firstName: '',
     lastName: '',
@@ -114,7 +118,7 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
           <h2 className="text-lg sm:text-xl font-bold text-black mb-2 pr-8">Complete Your Order</h2>
           <div className="flex items-center justify-between flex-wrap gap-2">
             <p className="text-xs sm:text-sm text-gray-600">{productName}</p>
-            <p className="text-xs sm:text-sm font-bold" style={{ color: '#F97316' }}>{productPrice}</p>
+            <p className="text-xs sm:text-sm font-bold" style={{ color: '#F97316' }}>{formatPrice(productPrice)}</p>
           </div>
         </div>
 

@@ -6,13 +6,13 @@ import OrderForm from './OrderForm';
 import SuccessModal from './SuccessModal';
 
 interface Product {
-  id: number;
+  id: string | number;
   name: string;
-  price: string;
-  description: string;
-  image: string;
+  price: number;
+  description?: string;
+  image?: string;
   images: string[];
-  specs: string[];
+  specs?: string[];
   inStock: boolean;
 }
 
@@ -28,6 +28,11 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
   const [orderData, setOrderData] = useState<any>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
+  // Format price to RWF currency
+  const formatPrice = (price: number) => {
+    return `RWF ${price.toLocaleString('en-US')}`;
+  };
+
   // Reset selected image when product changes
   useEffect(() => {
     if (product) {
@@ -40,7 +45,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
   // Use images array if available, otherwise fall back to single image
   const productImages = product.images && product.images.length > 0
     ? product.images
-    : [product.image];
+    : product.image ? [product.image] : [];
 
   const handleOrderNow = () => {
     setShowOrderForm(true);
@@ -124,7 +129,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
               {/* Price */}
               <div className="mb-6">
                 <span className="text-lg md:text-xl font-bold" style={{ color: '#F97316' }}>
-                  {product.price}
+                  {formatPrice(product.price)}
                 </span>
               </div>
 
@@ -141,20 +146,24 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
               </div>
 
               {/* Description */}
-              <p className="text-xs text-gray-700 mb-6 leading-relaxed">{product.description}</p>
+              {product.description && (
+                <p className="text-xs text-gray-700 mb-6 leading-relaxed">{product.description}</p>
+              )}
 
               {/* Specifications */}
-              <div className="mb-6">
-                <h3 className="text-xs font-semibold text-black mb-3">Key Specifications</h3>
-                <ul className="space-y-2">
-                  {product.specs.map((spec, index) => (
-                    <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
-                      <span className="text-orange-600 mt-1">•</span>
-                      <span>{spec}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {product.specs && product.specs.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-xs font-semibold text-black mb-3">Key Specifications</h3>
+                  <ul className="space-y-2">
+                    {product.specs.map((spec, index) => (
+                      <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
+                        <span className="text-orange-600 mt-1">•</span>
+                        <span>{spec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Action Buttons */}
@@ -212,13 +221,15 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
       </div>
 
       {/* Order Form Modal */}
-      <OrderForm
-        isOpen={showOrderForm}
-        onClose={handleOrderFormClose}
-        productName={product.name}
-        productPrice={product.price}
-        onSubmit={handleOrderSubmit}
-      />
+      {product && (
+        <OrderForm
+          isOpen={showOrderForm}
+          onClose={handleOrderFormClose}
+          productName={product.name}
+          productPrice={product.price}
+          onSubmit={handleOrderSubmit}
+        />
+      )}
 
       {/* Success Modal */}
       {orderData && (

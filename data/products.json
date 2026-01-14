@@ -1,0 +1,35 @@
+[
+  {
+    "id": "prod_1768388635918",
+    "name": "mubeni",
+    "category": "Laptops",
+    "price": 3000,
+    "stock": 20,
+    "status": "In Stock",
+    "description": "",
+    "images": [
+      "/uploads/products/1768388635897-bwzgdg.png",
+      "/uploads/products/1768388635898-2d3rs.jpg",
+      "/uploads/products/1768388635899-s0ffx.jpg",
+      "/uploads/products/1768388635900-se96jo.png"
+    ],
+    "createdAt": "2026-01-14T11:03:55.918Z",
+    "updatedAt": "2026-01-14T11:03:55.918Z"
+  },
+  {
+    "id": "prod_1768389346703",
+    "name": "hinja",
+    "category": "Smartphones",
+    "price": 34554,
+    "stock": 24,
+    "status": "In Stock",
+    "description": "how can we implement this on the first dy ",
+    "images": [
+      "/uploads/products/1768389346681-9orq20q.jpeg",
+      "/uploads/products/1768389346684-ce1riy.jpeg",
+      "/uploads/products/1768389346685-0zun2k.jpeg"
+    ],
+    "createdAt": "2026-01-14T11:15:46.703Z",
+    "updatedAt": "2026-01-14T11:31:31.661Z"
+  }
+]
