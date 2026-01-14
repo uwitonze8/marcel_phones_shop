@@ -101,7 +101,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
                     onClick={() => setSelectedImageIndex(index)}
                     className={`bg-gray-100 rounded-lg p-2 flex items-center justify-center cursor-pointer transition-all duration-200 ${
                       selectedImageIndex === index
-                        ? 'ring-2 ring-[#083A85] ring-offset-2'
+                        ? 'ring-2 ring-[#F97316] ring-offset-2'
                         : 'hover:bg-gray-200'
                     }`}
                   >
@@ -123,7 +123,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-lg md:text-xl font-bold" style={{ color: '#083A85' }}>
+                <span className="text-lg md:text-xl font-bold" style={{ color: '#F97316' }}>
                   {product.price}
                 </span>
               </div>
@@ -149,7 +149,7 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
                 <ul className="space-y-2">
                   {product.specs.map((spec, index) => (
                     <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
-                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-orange-600 mt-1">•</span>
                       <span>{spec}</span>
                     </li>
                   ))}
@@ -163,14 +163,14 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
                 onClick={handleOrderNow}
                 disabled={!product.inStock}
                 className="flex-1 text-white px-6 py-2 rounded-lg text-xs font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-lg"
-                style={{ backgroundColor: '#083A85' }}
+                style={{ backgroundColor: '#F97316' }}
               >
                 Order Now
               </button>
               <button
                 onClick={onClose}
                 className="px-6 py-2 rounded-lg text-xs font-semibold border-2 transition-all hover:bg-gray-50 cursor-pointer"
-                style={{ borderColor: '#083A85', color: '#083A85' }}
+                style={{ borderColor: '#F97316', color: '#F97316' }}
               >
                 Continue browsing
               </button>

@@ -13,7 +13,7 @@ export default function TermsOfServiceContent() {
         {/* Hero Section */}
         <div className="py-6 sm:py-8 md:py-10" style={{ backgroundColor: 'rgba(8, 58, 133, 0.05)' }}>
           <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
-            <BsFileText className="text-3xl sm:text-4xl mx-auto mb-2 sm:mb-3" style={{ color: '#083A85' }} />
+            <BsFileText className="text-3xl sm:text-4xl mx-auto mb-2 sm:mb-3" style={{ color: '#F97316' }} />
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
               Terms of Service
             </h1>
@@ -47,7 +47,7 @@ export default function TermsOfServiceContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsCart className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsCart className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Products and Orders</h2>
             </div>
@@ -80,7 +80,7 @@ export default function TermsOfServiceContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsCreditCard className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsCreditCard className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Payment Terms</h2>
             </div>
@@ -102,7 +102,7 @@ export default function TermsOfServiceContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsArrowReturnLeft className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsArrowReturnLeft className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Returns and Refunds</h2>
             </div>
@@ -145,7 +145,7 @@ export default function TermsOfServiceContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsExclamationTriangle className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsExclamationTriangle className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Limitation of Liability</h2>
             </div>
@@ -209,7 +209,7 @@ export default function TermsOfServiceContent() {
           </section>
 
           {/* Acknowledgment */}
-          <section className="bg-blue-50 rounded-lg p-3 sm:p-4 border-l-4" style={{ borderColor: '#083A85' }}>
+          <section className="bg-orange-50 rounded-lg p-3 sm:p-4 border-l-4" style={{ borderColor: '#F97316' }}>
             <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
               By using our website and making a purchase, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
             </p>

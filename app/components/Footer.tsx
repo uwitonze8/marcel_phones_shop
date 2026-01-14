@@ -1,7 +1,7 @@
 import Image from 'next/image';
 export default function Footer() {
   return (
-    <footer className="py-6 sm:py-8 md:py-8 text-white" style={{backgroundColor: '#083A85'}}>
+    <footer className="py-6 sm:py-8 md:py-8 text-white bg-black">
       <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-6 mb-8 sm:mb-6">
           {/* Logo and Description */}

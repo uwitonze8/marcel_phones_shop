@@ -25,7 +25,7 @@ export default function SupportContent() {
             {/* Product Warranty & Returns */}
             <div className="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer">
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: 'rgba(8, 58, 133, 0.1)'}}>
-                <BsShieldCheck className="text-xl sm:text-xl md:text-2xl" style={{color: '#083A85'}} />
+                <BsShieldCheck className="text-xl sm:text-xl md:text-2xl" style={{color: '#F97316'}} />
               </div>
               <h3 className="text-sm sm:text-base font-medium text-gray-700">Product Warranty & Returns</h3>
             </div>
@@ -33,7 +33,7 @@ export default function SupportContent() {
             {/* Order and Delivery */}
             <div className="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer">
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: 'rgba(8, 58, 133, 0.1)'}}>
-                <FaTruck className="text-xl sm:text-xl md:text-2xl" style={{color: '#083A85'}} />
+                <FaTruck className="text-xl sm:text-xl md:text-2xl" style={{color: '#F97316'}} />
               </div>
               <h3 className="text-sm sm:text-base font-medium text-gray-700">Order and Delivery</h3>
             </div>
@@ -41,7 +41,7 @@ export default function SupportContent() {
             {/* Payment & Pricing */}
             <div className="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer">
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4 mx-auto" style={{backgroundColor: 'rgba(8, 58, 133, 0.1)'}}>
-                <FaReceipt className="text-xl sm:text-xl md:text-2xl" style={{color: '#083A85'}} />
+                <FaReceipt className="text-xl sm:text-xl md:text-2xl" style={{color: '#F97316'}} />
               </div>
               <h3 className="text-sm sm:text-base font-medium text-gray-700">Payment & Pricing</h3>
             </div>
@@ -57,7 +57,7 @@ export default function SupportContent() {
                 placeholder="Search for warranty info, delivery status, payment options..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                className="w-full pl-9 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base"
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function SupportContent() {
                 <a
                   href="/user/setup-guides"
                   className="hover:underline inline-flex items-center gap-2 font-medium text-sm sm:text-base"
-                  style={{color: '#083A85'}}
+                  style={{color: '#F97316'}}
                 >
                   View Setup Guides →
                 </a>
@@ -93,7 +93,7 @@ export default function SupportContent() {
                 <a href="/user/contact_us">
                   <button
                     className="px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-full text-white font-medium hover:opacity-90 transition-all text-sm sm:text-base"
-                    style={{ backgroundColor: '#083A85' }}
+                    style={{ backgroundColor: '#F97316' }}
                   >
                     Contact Us Now
                   </button>
@@ -145,7 +145,7 @@ export default function SupportContent() {
             <p className="text-sm sm:text-base text-gray-600 mb-1.5 sm:mb-2">
               Get personalized assistance with your orders, product inquiries, or technical support.
             </p>
-            <a href="/user/contact_us" className="hover:underline font-medium text-sm sm:text-base" style={{color: '#083A85'}}>
+            <a href="/user/contact_us" className="hover:underline font-medium text-sm sm:text-base" style={{color: '#F97316'}}>
               Contact our support team →
             </a>
           </div>
@@ -158,7 +158,7 @@ export default function SupportContent() {
               <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                 Always purchase from Marcel Electronics official stores and verified channels. Counterfeit electronics may look similar but lack authenticity, quality warranties, and can be unsafe.
               </p>
-              <a href="/user/authenticity" className="hover:underline inline-flex items-center gap-1 font-medium text-sm sm:text-base" style={{color: '#083A85'}}>
+              <a href="/user/authenticity" className="hover:underline inline-flex items-center gap-1 font-medium text-sm sm:text-base" style={{color: '#F97316'}}>
                 Learn more →
               </a>
             </div>
@@ -169,7 +169,7 @@ export default function SupportContent() {
               <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
                 All our products come with genuine manufacturer warranties. We are committed to selling only authentic smartphones, laptops, and accessories from authorized distributors.
               </p>
-              <a href="/user/about" className="hover:underline inline-flex items-center gap-1 font-medium text-sm sm:text-base" style={{color: '#083A85'}}>
+              <a href="/user/about" className="hover:underline inline-flex items-center gap-1 font-medium text-sm sm:text-base" style={{color: '#F97316'}}>
                 Learn more →
               </a>
             </div>
@@ -178,7 +178,7 @@ export default function SupportContent() {
 
         {/* Quick Contact Section */}
         <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12">
-          <div className="rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-8 text-center text-white" style={{backgroundColor: '#083A85'}}>
+          <div className="rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-8 text-center text-white" style={{backgroundColor: '#F97316'}}>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Still Need Help?</h2>
             <p className="text-sm sm:text-base text-gray-100 mb-5 sm:mb-6 max-w-2xl mx-auto">
               Our team is here to help you with any questions about products, orders, warranties, or technical support.

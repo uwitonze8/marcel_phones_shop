@@ -579,7 +579,7 @@ export default function ProductPage() {
           <div className="w-full max-w-4xl mx-auto text-center space-y-3 sm:space-y-4 lg:space-y-5">
             {/* Badge */}
             <div className="inline-block">
-              <span className="text-white px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold" style={{backgroundColor: '#083A85'}}>
+              <span className="text-white px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold" style={{backgroundColor: '#F97316'}}>
                 🛍️ Explore Our Products Collection
               </span>
             </div>
@@ -603,7 +603,7 @@ export default function ProductPage() {
                 <button
                   onClick={handleSearch}
                   className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 text-white text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer"
-                  style={{backgroundColor: '#083A85'}}
+                  style={{backgroundColor: '#F97316'}}
                 >
                   <BsSearch className="w-4 h-4 sm:w-4 sm:h-4" />
                   <span className="hidden sm:inline">Search</span>
@@ -643,7 +643,7 @@ export default function ProductPage() {
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-2.5 rounded-lg border-2 border-white/40 bg-white/20 backdrop-blur-sm text-white text-xs sm:text-xs font-medium focus:outline-none focus:border-white/60 focus:bg-white/30 transition-all cursor-pointer hover:border-white/50"
                     >
                       {categories.map((category) => (
-                        <option key={category} value={category} className="bg-[#083A85] text-white py-2">
+                        <option key={category} value={category} className="bg-[#F97316] text-white py-2">
                           {category}
                         </option>
                       ))}
@@ -661,7 +661,7 @@ export default function ProductPage() {
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-2.5 rounded-lg border-2 border-white/40 bg-white/20 backdrop-blur-sm text-white text-xs sm:text-xs font-medium focus:outline-none focus:border-white/60 focus:bg-white/30 transition-all cursor-pointer hover:border-white/50"
                     >
                       {priceRanges.map((range) => (
-                        <option key={range} value={range} className="bg-[#083A85] text-white py-2">
+                        <option key={range} value={range} className="bg-[#F97316] text-white py-2">
                           {range}
                         </option>
                       ))}
@@ -678,9 +678,9 @@ export default function ProductPage() {
                       onChange={(e) => handleSortChange(e.target.value as 'default' | 'price-low' | 'price-high')}
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-2.5 rounded-lg border-2 border-white/40 bg-white/20 backdrop-blur-sm text-white text-xs sm:text-xs font-medium focus:outline-none focus:border-white/60 focus:bg-white/30 transition-all cursor-pointer hover:border-white/50"
                     >
-                      <option value="default" className="bg-[#083A85] text-white py-2">Default Order</option>
-                      <option value="price-low" className="bg-[#083A85] text-white py-2">Price: Low to High</option>
-                      <option value="price-high" className="bg-[#083A85] text-white py-2">Price: High to Low</option>
+                      <option value="default" className="bg-[#F97316] text-white py-2">Default Order</option>
+                      <option value="price-low" className="bg-[#F97316] text-white py-2">Price: Low to High</option>
+                      <option value="price-high" className="bg-[#F97316] text-white py-2">Price: High to Low</option>
                     </select>
                   </div>
                 </div>
@@ -704,7 +704,7 @@ export default function ProductPage() {
               </p>
               <button
                 onClick={handleClearFilters}
-                className="px-5 sm:px-6 py-2 bg-[#083A85] text-white rounded-lg text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all"
+                className="px-5 sm:px-6 py-2 bg-[#F97316] text-white rounded-lg text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all"
               >
                 Clear All Filters
               </button>
@@ -731,7 +731,7 @@ export default function ProductPage() {
 
                     {/* Price */}
                     <div className="mb-3 sm:mb-3">
-                      <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#083A85'}}>
+                      <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#F97316'}}>
                         {product.price}
                       </p>
                     </div>
@@ -741,14 +741,14 @@ export default function ProductPage() {
                       <button
                         onClick={() => handleViewProduct(product)}
                         className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-xs sm:text-xs font-semibold border-2 transition-all duration-300 hover:bg-gray-50 cursor-pointer"
-                        style={{borderColor: '#083A85', color: '#083A85'}}
+                        style={{borderColor: '#F97316', color: '#F97316'}}
                       >
                         View
                       </button>
                       <button
                         onClick={() => handleBuyNow(product)}
                         className="flex-1 py-2 sm:py-2 rounded-lg sm:rounded-lg text-white text-xs sm:text-xs font-semibold transition-all duration-300 hover:opacity-90 cursor-pointer"
-                        style={{backgroundColor: '#083A85'}}
+                        style={{backgroundColor: '#F97316'}}
                       >
                         <span className="flex items-center justify-center gap-1 sm:gap-1">
                           Buy Now
@@ -798,7 +798,7 @@ export default function ProductPage() {
                       }`}
                       style={
                         currentPage === pageNumber
-                          ? { backgroundColor: '#083A85' }
+                          ? { backgroundColor: '#F97316' }
                           : {}
                       }
                     >

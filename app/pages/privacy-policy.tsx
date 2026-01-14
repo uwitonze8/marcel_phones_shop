@@ -13,7 +13,7 @@ export default function PrivacyPolicyContent() {
         {/* Hero Section */}
         <div className="py-6 sm:py-8 md:py-10" style={{ backgroundColor: 'rgba(8, 58, 133, 0.05)' }}>
           <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
-            <BsShieldCheck className="text-3xl sm:text-4xl mx-auto mb-2 sm:mb-3" style={{ color: '#083A85' }} />
+            <BsShieldCheck className="text-3xl sm:text-4xl mx-auto mb-2 sm:mb-3" style={{ color: '#F97316' }} />
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-1 sm:mb-2">
               Privacy Policy
             </h1>
@@ -39,7 +39,7 @@ export default function PrivacyPolicyContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsEye className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsEye className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Information We Collect</h2>
             </div>
@@ -65,7 +65,7 @@ export default function PrivacyPolicyContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsLock className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsLock className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">How We Use Your Information</h2>
             </div>
@@ -85,7 +85,7 @@ export default function PrivacyPolicyContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsCookie className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsCookie className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Cookies and Tracking</h2>
             </div>
@@ -144,7 +144,7 @@ export default function PrivacyPolicyContent() {
           <section className="mb-4 sm:mb-6">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(8, 58, 133, 0.1)' }}>
-                <BsEnvelope className="text-sm sm:text-base" style={{ color: '#083A85' }} />
+                <BsEnvelope className="text-sm sm:text-base" style={{ color: '#F97316' }} />
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900">Contact Us</h2>
             </div>
