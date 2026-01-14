@@ -1,23 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import ProductModal from '@/app/components/ProductModal';
 import OrderForm from '@/app/components/OrderForm';
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
-  price: string;
-  description: string;
-  image: string;
+  price: number;
+  description?: string;
+  image?: string;
   images: string[];
-  badge: string;
-  specs: string[];
-  rating: number;
-  reviews: number;
+  badge?: string;
+  specs?: string[];
+  rating?: number;
+  reviews?: number;
   inStock: boolean;
+  stock: number;
+  category: string;
+  createdAt: string;
+}
+
+interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
 }
 
 export default function Home() {
@@ -25,202 +34,47 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
   const [productToOrder, setProductToOrder] = useState<Product | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Product data
-  const products: Product[] = [
-    {
-      id: 1,
-      name: 'iPhone 15 Pro Max',
-      price: 'RWF 1,549,000',
-      description: 'Experience the latest flagship smartphone from Apple with cutting-edge technology, stunning display, and powerful performance.',
-      image: 'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
-      images: [
-        'https://i.pinimg.com/1200x/14/e1/24/14e124c7161f9e82cc27178d088fdaf1.jpg',
-        'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80',
-        'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80',
-        'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80'
-      ],
-      badge: 'New',
-      specs: [
-        'A17 Pro chip with 6-core GPU',
-        '6.7-inch Super Retina XDR display',
-        'Pro camera system with 48MP main',
-        'Titanium design with Action button',
-        'Up to 29 hours video playback'
-      ],
-      rating: 5,
-      reviews: 1247,
-      inStock: true
-    },
-    {
-      id: 2,
-      name: 'MacBook Pro 14"',
-      price: 'RWF 2,585,000',
-      description: 'Supercharged by M3 Pro chip for incredible performance. Perfect for professionals and creators.',
-      image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80',
-        'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&q=80',
-        'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&q=80',
-        'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&q=80'
-      ],
-      badge: 'Hot',
-      specs: [
-        'Apple M3 Pro chip',
-        '18GB Unified Memory',
-        '512GB SSD Storage',
-        '14.2-inch Liquid Retina XDR display',
-        'Up to 18 hours battery life'
-      ],
-      rating: 5,
-      reviews: 892,
-      inStock: true
-    },
-    {
-      id: 3,
-      name: 'Apple Watch Series 9',
-      price: 'RWF 555,000',
-      description: 'Your essential companion for a healthy life. Now with new features and advanced health tracking.',
-      image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80',
-        'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=800&q=80',
-        'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&q=80',
-        'https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=800&q=80'
-      ],
-      badge: 'Sale',
-      specs: [
-        'GPS + Cellular connectivity',
-        '45mm Always-On Retina display',
-        'Blood Oxygen & ECG apps',
-        'Water resistant to 50 meters',
-        'Up to 18 hours battery life'
-      ],
-      rating: 4,
-      reviews: 634,
-      inStock: true
-    },
-    {
-      id: 4,
-      name: 'AirPods Pro 2',
-      price: 'RWF 257,000',
-      description: 'Immersive sound with Active Noise Cancellation. Adaptive Audio for the perfect listening experience.',
-      image: 'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=800&q=80',
-        'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800&q=80',
-        'https://images.unsplash.com/photo-1588423771073-b8903fba77ac?w=800&q=80',
-        'https://images.unsplash.com/photo-1610438235354-a6ae5528385c?w=800&q=80'
-      ],
-      badge: '-20%',
-      specs: [
-        'Active Noise Cancellation',
-        'Adaptive Audio',
-        'Personalized Spatial Audio',
-        'Up to 6 hours listening time',
-        'MagSafe charging case'
-      ],
-      rating: 5,
-      reviews: 2341,
-      inStock: true
-    },
-    {
-      id: 5,
-      name: 'Samsung Galaxy S24 Ultra',
-      price: 'RWF 1,680,000',
-      description: 'AI-powered flagship phone with the most advanced camera system and S Pen for ultimate productivity.',
-      image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
-        'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&q=80',
-        'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80',
-        'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80'
-      ],
-      badge: 'New',
-      specs: [
-        'Snapdragon 8 Gen 3 processor',
-        '6.8-inch Dynamic AMOLED 2X display',
-        '200MP main camera with AI zoom',
-        'Built-in S Pen',
-        '5000mAh battery with fast charging'
-      ],
-      rating: 5,
-      reviews: 1089,
-      inStock: true
-    },
-    {
-      id: 6,
-      name: 'Dell XPS 13',
-      price: 'RWF 1,680,000',
-      description: 'Premium ultraportable laptop with stunning InfinityEdge display and exceptional performance.',
-      image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&q=80',
-        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80',
-        'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=80',
-        'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80'
-      ],
-      badge: 'Popular',
-      specs: [
-        'Intel Core i7 13th Gen',
-        '16GB LPDDR5 RAM',
-        '512GB PCIe NVMe SSD',
-        '13.4-inch FHD+ display',
-        'Up to 12 hours battery life'
-      ],
-      rating: 4,
-      reviews: 756,
-      inStock: true
-    },
-    {
-      id: 7,
-      name: 'iPad Pro 12.9"',
-      price: 'RWF 1,420,000',
-      description: 'The ultimate iPad experience with M2 chip. Perfect for creativity and productivity on the go.',
-      image: 'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
-      images: [
-        'https://i.pinimg.com/1200x/07/84/f0/0784f06ce144f22d9b688aac8b9ccc70.jpg',
-        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80',
-        'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=800&q=80',
-        'https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800&q=80'
-      ],
-      badge: 'Hot',
-      specs: [
-        'Apple M2 chip',
-        '12.9-inch Liquid Retina XDR display',
-        '256GB storage',
-        'ProMotion 120Hz refresh rate',
-        'Support for Apple Pencil & Magic Keyboard'
-      ],
-      rating: 5,
-      reviews: 923,
-      inStock: true
-    },
-    {
-      id: 8,
-      name: 'Sony WH-1000XM5',
-      price: 'RWF 438,000',
-      description: 'Industry-leading noise cancellation with exceptional sound quality and all-day comfort.',
-      image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&q=80',
-      images: [
-        'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800&q=80',
-        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
-        'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&q=80',
-        'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80'
-      ],
-      badge: '-15%',
-      specs: [
-        'Industry-leading noise cancellation',
-        '30-hour battery life',
-        'Multi-point connection',
-        'Touch sensor controls',
-        'Speak-to-Chat technology'
-      ],
-      rating: 5,
-      reviews: 1567,
-      inStock: true
-    }
-  ];
+  // Format price to RWF currency
+  const formatPrice = (price: number) => {
+    return `RWF ${price.toLocaleString('en-US')}`;
+  };
+
+  // Fetch products from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('http://localhost:3000/api/products');
+        const data: ApiResponse<Product[]> = await response.json();
+
+        if (data.success && data.data) {
+          // Sort by createdAt (newest first) and take first 8
+          const sortedProducts = data.data
+            .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+            .slice(0, 8)
+            .map((product) => ({
+              ...product,
+              image: product.images[0] || 'https://via.placeholder.com/400',
+              inStock: product.stock > 0,
+              badge: 'New',
+              specs: [],
+              rating: 5,
+              reviews: 0,
+            }));
+          setProducts(sortedProducts);
+        }
+      } catch (err) {
+        console.error('Error fetching products:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleViewProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -385,8 +239,17 @@ export default function Home() {
             <p className="text-[10px] sm:text-xs text-black">Best deals on top electronics</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-6">
-            {products.map((product) => (
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{borderColor: '#F97316'}}></div>
+            </div>
+          ) : products.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-500 text-sm">No products available yet.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-6">
+              {products.map((product) => (
               <div key={product.id} className="group bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
                 {/* Product Image */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 h-56 sm:h-48 lg:h-56 overflow-hidden">
@@ -407,7 +270,7 @@ export default function Home() {
                   {/* Price */}
                   <div className="mb-3 sm:mb-3">
                     <p className="text-xl sm:text-lg lg:text-xl font-bold" style={{color: '#F97316'}}>
-                      {product.price}
+                      {formatPrice(product.price)}
                     </p>
                   </div>
 
@@ -435,16 +298,19 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
-          <div className="text-center mt-6 sm:mt-8">
-            <a href="/user/product">
-            <button className="text-white px-5 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#F97316'}}>
-              View All Products
-            </button>
-            </a>
-          </div>
+          {!loading && products.length > 0 && (
+            <div className="text-center mt-6 sm:mt-8">
+              <a href="/user/product">
+                <button className="text-white px-5 sm:px-6 py-2 rounded-lg text-xs sm:text-sm font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#F97316'}}>
+                  View All Products
+                </button>
+              </a>
+            </div>
+          )}
         </div>
       </section>
 

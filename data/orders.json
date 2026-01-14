@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ord_1",
+    "customerName": "Jean Baptiste",
+    "customerEmail": "jean@example.com",
+    "customerPhone": "+250788123456",
+    "product": "iPhone 15 Pro Max",
+    "productId": "prod_1",
+    "quantity": 1,
+    "totalAmount": 1850000,
+    "deliveryAddress": "KN 5 Ave, Kigali",
+    "deliveryOption": "Express",
+    "status": "Completed",
+    "createdAt": "2024-12-24T10:00:00.000Z",
+    "updatedAt": "2024-12-24T15:00:00.000Z"
+  },
+  {
+    "id": "ord_2",
+    "customerName": "Marie Claire",
+    "customerEmail": "marie@example.com",
+    "customerPhone": "+250788234567",
+    "product": "MacBook Pro 14\"",
+    "productId": "prod_2",
+    "quantity": 1,
+    "totalAmount": 2450000,
+    "deliveryAddress": "KG 10 Ave, Kigali",
+    "deliveryOption": "Standard",
+    "status": "Processing",
+    "createdAt": "2024-12-24T11:00:00.000Z",
+    "updatedAt": "2024-12-24T11:00:00.000Z"
+  },
+  {
+    "id": "ord_3",
+    "customerName": "Patrick Mugabo",
+    "customerEmail": "patrick@example.com",
+    "customerPhone": "+250788345678",
+    "product": "Apple Watch Series 9",
+    "productId": "prod_3",
+    "quantity": 1,
+    "totalAmount": 650000,
+    "deliveryAddress": "KK 20 St, Kigali",
+    "deliveryOption": "Standard",
+    "status": "Pending",
+    "createdAt": "2024-12-23T09:00:00.000Z",
+    "updatedAt": "2024-12-23T09:00:00.000Z"
+  }
+]

@@ -6,9 +6,20 @@
       "Bash(tree:*)",
       "Bash(wc:*)",
       "Bash(npm run dev:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(yarn dev)",
+      "Bash(pkill:*)",
+      "Bash(npx tsx:*)",
+      "Bash(xargs kill:*)",
+      "Bash(kill:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "/home/pacific/Desktop/my_projects/marcel_phones_admin/lib"
+    ]
   }
 }
