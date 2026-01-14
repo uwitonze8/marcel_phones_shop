@@ -224,7 +224,7 @@ export function seedDatabase() {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
 
-  // Write sample data to files
+  // Write sample data to file
   fs.writeFileSync(
     path.join(DATA_DIR, 'products.json'),
     JSON.stringify(sampleProducts, null, 2)
