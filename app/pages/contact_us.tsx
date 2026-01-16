@@ -13,6 +13,10 @@ export default function ContactUs() {
     subject: '',
     message: ''
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,10 +26,48 @@ export default function ContactUs() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+
+    try {
+      setSubmitting(true);
+
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setShowSuccessModal(true);
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setErrorMessage(result.error || 'Failed to send message. Please try again.');
+        setShowErrorModal(true);
+      }
+    } catch (error) {
+      setErrorMessage('An error occurred while sending your message. Please try again.');
+      setShowErrorModal(true);
+      console.error('Error submitting form:', error);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -204,17 +246,92 @@ export default function ContactUs() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="text-white font-semibold py-2 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 uppercase tracking-wider text-sm w-full md:w-auto"
+                    disabled={submitting}
+                    className="text-white font-semibold py-2 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 uppercase tracking-wider text-sm w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     style={{backgroundColor: '#F97316'}}
                   >
-                    Submit
+                    {submitting ? 'Sending...' : 'Submit'}
                   </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
+
+        {/* Success Modal */}
+        {showSuccessModal && (
+          <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+            <div className="bg-white rounded-xl shadow-xl w-full max-w-md animate-slideIn">
+              <div className="p-6 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Message Sent Successfully!
+                </h3>
+                <p className="text-sm text-gray-600 mb-6">
+                  Thank you for contacting us. We'll get back to you as soon as possible.
+                </p>
+                <button
+                  onClick={() => setShowSuccessModal(false)}
+                  className="w-full px-4 py-2 rounded-lg font-medium transition-colors"
+                  style={{backgroundColor: '#F97316', color: 'white'}}
+                >
+                  Great!
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Error Modal */}
+        {showErrorModal && (
+          <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+            <div className="bg-white rounded-xl shadow-xl w-full max-w-md animate-slideIn">
+              <div className="p-6 text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Error
+                </h3>
+                <p className="text-sm text-gray-600 mb-6">
+                  {errorMessage}
+                </p>
+                <button
+                  onClick={() => setShowErrorModal(false)}
+                  className="w-full px-4 py-2 rounded-lg font-medium transition-colors"
+                  style={{backgroundColor: '#F97316', color: 'white'}}
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* Animation Styles */}
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        .animate-slideIn {
+          animation: slideIn 0.2s ease-out;
+        }
+      `}</style>
     </>
   );
 }

@@ -14,12 +14,19 @@
       "Bash(kill:*)",
       "Bash(curl:*)",
       "Bash(wget:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git stash:*)",
+      "Bash(yarn build:*)"
     ],
     "deny": [],
     "ask": [],
     "additionalDirectories": [
-      "/home/pacific/Desktop/my_projects/marcel_phones_admin/lib"
+      "/home/pacific/Desktop/my_projects/marcel_phones_admin/lib",
+      "/home/pacific/Desktop/my_projects/marcel_phones_admin/app/messages"
     ]
   }
 }

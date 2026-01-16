@@ -18,7 +18,7 @@
   },
   {
     "id": "prod_1768389346703",
-    "name": "hinja",
+    "name": "marcel",
     "category": "Smartphones",
     "price": 34554,
     "stock": 24,
@@ -30,6 +30,23 @@
       "/uploads/products/1768389346685-0zun2k.jpeg"
     ],
     "createdAt": "2026-01-14T11:15:46.703Z",
-    "updatedAt": "2026-01-14T11:31:31.661Z"
+    "updatedAt": "2026-01-16T12:41:00.260Z"
+  },
+  {
+    "id": "prod_1768567833077",
+    "name": "muneza",
+    "category": "Smartphones",
+    "price": 45,
+    "stock": 56,
+    "status": "In Stock",
+    "description": "buy one get onother ",
+    "images": [
+      "/uploads/products/1768567833041-dg1dw.jpeg",
+      "/uploads/products/1768567833045-pvpekl.ico",
+      "/uploads/products/1768567833046-gu4dwp.jpeg",
+      "/uploads/products/1768567833048-2su1q.png"
+    ],
+    "createdAt": "2026-01-16T12:50:33.077Z",
+    "updatedAt": "2026-01-16T12:50:33.077Z"
   }
 ]

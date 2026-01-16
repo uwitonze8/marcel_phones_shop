@@ -61,6 +61,27 @@ export interface Message {
   updatedAt: string;
 }
 
+export interface Settings {
+  id: string;
+  storeName: string;
+  storeEmail: string;
+  storePhone: string;
+  currency: string;
+  streetAddress: string;
+  city: string;
+  district: string;
+  notifications: {
+    newOrders: boolean;
+    newCustomers: boolean;
+    lowInventory: boolean;
+  };
+  adminCredentials: {
+    email: string;
+    password: string;
+  };
+  updatedAt: string;
+}
+
 function getFilePath(collection: string): string {
   return path.join(DATA_DIR, `${collection}.json`);
 }
