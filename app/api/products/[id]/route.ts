@@ -4,10 +4,11 @@ import { db, Product } from '@/lib/db';
 // GET /api/products/[id] - Get a single product
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const product = db.findById<Product>('products', params.id);
+    const { id } = await params;
+    const product = db.findById<Product>('products', id);
     if (!product) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },

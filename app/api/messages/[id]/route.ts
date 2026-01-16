@@ -4,10 +4,11 @@ import { db, Message } from '@/lib/db';
 // GET /api/messages/[id] - Get a single message
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const message = db.findById<Message>('messages', params.id);
+    const { id } = await params;
+    const message = db.findById<Message>('messages', id);
     if (!message) {
       return NextResponse.json(
         { success: false, error: 'Message not found' },
@@ -26,11 +27,12 @@ export async function GET(
 // PUT /api/messages/[id] - Update a message (mark as read, add reply)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const message = db.update<Message>('messages', params.id, body);
+    const message = db.update<Message>('messages', id, body);
     if (!message) {
       return NextResponse.json(
         { success: false, error: 'Message not found' },
@@ -49,10 +51,11 @@ export async function PUT(
 // DELETE /api/messages/[id] - Delete a message
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const deleted = db.delete('messages', params.id);
+    const { id } = await params;
+    const deleted = db.delete('messages', id);
     if (!deleted) {
       return NextResponse.json(
         { success: false, error: 'Message not found' },

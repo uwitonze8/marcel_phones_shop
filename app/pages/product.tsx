@@ -40,6 +40,9 @@ export default function ProductPage() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
   const productsPerPage = 12;
 
   // Fetch products from API
@@ -154,10 +157,49 @@ export default function ProductPage() {
     setProductToOrder(null);
   };
 
-  const handleOrderSubmit = (formData: any) => {
-    console.log('Order submitted:', formData);
-    alert('Order placed successfully! We will contact you shortly.');
-    handleCloseOrderForm();
+  const handleOrderSubmit = async (formData: any) => {
+    if (!productToOrder) return;
+
+    try {
+      // Prepare order data
+      const orderData = {
+        customerName: `${formData.firstName} ${formData.lastName}`,
+        customerEmail: formData.email,
+        customerPhone: formData.phone,
+        product: productToOrder.name,
+        productId: productToOrder.id,
+        quantity: 1,
+        totalAmount: productToOrder.price,
+        deliveryAddress: formData.deliveryOption === 'delivery'
+          ? `${formData.streetAddress}, ${formData.city}, ${formData.state}`
+          : 'Store Pickup',
+        deliveryOption: formData.deliveryOption === 'delivery' ? 'Home Delivery' : 'Store Pickup',
+      };
+
+      // Call API to create order
+      const response = await fetch('http://localhost:3000/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setModalMessage('Order placed successfully! We will contact you shortly.');
+        setShowSuccessModal(true);
+        handleCloseOrderForm();
+      } else {
+        setModalMessage('Failed to place order. Please try again.');
+        setShowErrorModal(true);
+      }
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      setModalMessage('An error occurred while placing your order. Please try again.');
+      setShowErrorModal(true);
+    }
   };
 
   const handlePageChange = (pageNumber: number) => {
@@ -541,6 +583,70 @@ export default function ProductPage() {
           onSubmit={handleOrderSubmit}
         />
       )}
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black/50 z-[10000] flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-md animate-slideIn">
+            <div className="p-6 text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Success!</h3>
+              <p className="text-sm text-gray-600 mb-6">{modalMessage}</p>
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full px-4 py-2 bg-[#F97316] text-white rounded-lg hover:opacity-90 transition-colors font-medium"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {showErrorModal && (
+        <div className="fixed inset-0 bg-black/50 z-[10000] flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-md animate-slideIn">
+            <div className="p-6 text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Error</h3>
+              <p className="text-sm text-gray-600 mb-6">{modalMessage}</p>
+              <button
+                onClick={() => setShowErrorModal(false)}
+                className="w-full px-4 py-2 bg-[#F97316] text-white rounded-lg hover:opacity-90 transition-colors font-medium"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Animation Styles */}
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        .animate-slideIn {
+          animation: slideIn 0.2s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

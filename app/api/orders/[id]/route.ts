@@ -4,10 +4,11 @@ import { db, Order } from '@/lib/db';
 // GET /api/orders/[id] - Get a single order
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const order = db.findById<Order>('orders', params.id);
+    const { id } = await params;
+    const order = db.findById<Order>('orders', id);
     if (!order) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
@@ -26,11 +27,12 @@ export async function GET(
 // PUT /api/orders/[id] - Update an order (mainly for status updates)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const order = db.update<Order>('orders', params.id, body);
+    const order = db.update<Order>('orders', id, body);
     if (!order) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
@@ -49,10 +51,11 @@ export async function PUT(
 // DELETE /api/orders/[id] - Delete an order
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const deleted = db.delete('orders', params.id);
+    const { id } = await params;
+    const deleted = db.delete('orders', id);
     if (!deleted) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
