@@ -8,5 +8,15 @@
     "totalSpent": 34554,
     "createdAt": "2026-01-16T14:27:44.200Z",
     "lastOrderDate": "2026-01-16T14:27:44.200Z"
+  },
+  {
+    "id": "cust_1768576806798",
+    "name": "MIRARAYI grant",
+    "email": "mirarayimoses@gmail.com",
+    "phone": "+254722686119",
+    "totalOrders": 1,
+    "totalSpent": 3000,
+    "createdAt": "2026-01-16T15:20:06.798Z",
+    "lastOrderDate": "2026-01-16T15:20:06.798Z"
   }
 ]
