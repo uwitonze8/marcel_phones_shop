@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsX, BsPersonFill, BsEnvelopeFill, BsPhoneFill, BsGeoAltFill, BsTruck, BsShop } from 'react-icons/bs';
 
 interface OrderFormData {
@@ -27,6 +27,15 @@ interface OrderFormProps {
   onSubmit: (formData: OrderFormData) => void;
 }
 
+interface Settings {
+  storeName: string;
+  storeEmail: string;
+  storePhone: string;
+  streetAddress: string;
+  city: string;
+  district: string;
+}
+
 export default function OrderForm({ isOpen, onClose, productName, productPrice, onSubmit }: OrderFormProps) {
   // Format price to RWF currency
   const formatPrice = (price: number) => {
@@ -49,6 +58,26 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof OrderFormData, string>>>({});
+  const [settings, setSettings] = useState<Settings | null>(null);
+
+  // Fetch settings from API
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/settings');
+        const data = await response.json();
+        if (data.success && data.data) {
+          setSettings(data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching settings:', error);
+      }
+    };
+
+    if (isOpen) {
+      fetchSettings();
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -403,21 +432,22 @@ export default function OrderForm({ isOpen, onClose, productName, productPrice, 
               <div className="bg-white rounded-lg p-3 sm:p-4 space-y-3 border border-orange-200">
                 <div>
                   <p className="text-xs font-semibold text-gray-800 mb-1">Pickup Location:</p>
-                  <p className="text-xs font-bold" style={{ color: '#F97316' }}>Marcel Phones Shop</p>
-                  <p className="text-xs text-gray-700">kigal city</p>
-                  <p className="text-xs text-gray-700">1st floor,Makuza peace plaza</p>
+                  <p className="text-xs font-bold" style={{ color: '#F97316' }}>{settings?.storeName || 'Marcel Phones Shop'}</p>
+                  <p className="text-xs text-gray-700">{settings?.city || 'Kigali'}</p>
+                  <p className="text-xs text-gray-700">{settings?.streetAddress || '1st Floor, Makuza Peace Plaza'}</p>
+                  <p className="text-xs text-gray-700">{settings?.district || ''}</p>
                 </div>
 
                 <div className="border-t border-gray-200 pt-3">
                   <p className="text-xs font-semibold text-gray-800 mb-1">📞 Contact Information:</p>
-                  <p className="text-xs text-gray-700">Phone: +250 781 853 236</p>
-                  <p className="text-xs text-gray-700">Email: info@marcelphoneshop.com</p>
+                  <p className="text-xs text-gray-700">Phone: {settings?.storePhone || '+250 781 853 236'}</p>
+                  <p className="text-xs text-gray-700">Email: {settings?.storeEmail || 'info@marcelphoneshop.com'}</p>
                 </div>
 
                 <div className="border-t border-gray-200 pt-3">
                   <p className="text-xs font-semibold text-gray-800 mb-1">🕒 Store Hours:</p>
-                  <p className="text-xs text-gray-700">Monday - saturday: 9:00 AM - 10:00 PM</p>
-                  <p className="text-xs text-gray-700">Sunday: 1:00 pM - 10:00 PM</p>
+                  <p className="text-xs text-gray-700">Monday - Saturday: 9:00 AM - 10:00 PM</p>
+                  <p className="text-xs text-gray-700">Sunday: 1:00 PM - 10:00 PM</p>
                 </div>
 
                 <div className="border-t border-gray-200 pt-3">

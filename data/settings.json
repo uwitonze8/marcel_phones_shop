@@ -1,0 +1,22 @@
+[
+  {
+    "id": "settings_default",
+    "storeName": "Marcel Phones Shop",
+    "storeEmail": "info@marcelphones.rw",
+    "storePhone": "+250 788 123 456",
+    "currency": "RWF",
+    "streetAddress": "KN 5 Rd, Kigali",
+    "city": "Kigali",
+    "district": "Gatsibo",
+    "notifications": {
+      "newOrders": true,
+      "newCustomers": true,
+      "lowInventory": true
+    },
+    "adminCredentials": {
+      "email": "pacific.uwitonze112@gmail.com",
+      "password": "Mubeni@2025"
+    },
+    "updatedAt": "2026-01-16T13:59:34.571Z"
+  }
+]

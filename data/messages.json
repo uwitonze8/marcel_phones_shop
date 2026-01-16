@@ -1,57 +1,37 @@
 [
   {
-    "id": "msg_1",
-    "name": "Alice Uwimana",
-    "email": "alice@example.com",
-    "phone": "+250788456789",
-    "subject": "Product Inquiry",
-    "message": "Do you have iPhone 15 Pro Max in blue color?",
-    "status": "Unread",
-    "createdAt": "2024-12-24T14:00:00.000Z",
-    "updatedAt": "2024-12-24T14:00:00.000Z"
-  },
-  {
-    "id": "msg_2",
-    "name": "Eric Habimana",
-    "email": "eric@example.com",
-    "phone": "+250788567890",
-    "subject": "Delivery Question",
-    "message": "What are your delivery options for outside Kigali?",
-    "status": "Read",
-    "createdAt": "2024-12-23T16:00:00.000Z",
-    "updatedAt": "2024-12-23T17:00:00.000Z"
-  },
-  {
-    "id": "msg_3",
-    "name": "Grace Mutesi",
-    "email": "grace@example.com",
-    "subject": "Warranty Information",
-    "message": "What is the warranty period for MacBook Pro?",
+    "id": "msg_1768567448624",
+    "name": "Fredrick Gato",
+    "email": "pacific.uwitonze112@gmail.com",
+    "phone": "0788587420",
+    "subject": "mathematics",
+    "message": "testing",
     "status": "Replied",
-    "reply": "All MacBooks come with 1-year Apple warranty. Extended warranty available.",
-    "createdAt": "2024-12-22T10:00:00.000Z",
-    "updatedAt": "2024-12-22T15:00:00.000Z"
+    "createdAt": "2026-01-16T12:44:08.624Z",
+    "updatedAt": "2026-01-16T13:26:00.834Z",
+    "reply": "well"
   },
   {
-    "id": "msg_4",
-    "name": "David Nkusi",
-    "email": "david@example.com",
-    "phone": "+250788678901",
-    "subject": "Trade-in Program",
-    "message": "Do you accept old phones as trade-in for new purchases?",
-    "status": "Unread",
-    "createdAt": "2024-12-24T12:00:00.000Z",
-    "updatedAt": "2024-12-24T12:00:00.000Z"
+    "id": "msg_1768569918583",
+    "name": "MOSES MIRARAYI",
+    "email": "mirarayimoses@gmail.com",
+    "phone": "0788377404",
+    "subject": "thankfull",
+    "message": "nonese",
+    "status": "Replied",
+    "createdAt": "2026-01-16T13:25:18.583Z",
+    "updatedAt": "2026-01-16T13:25:41.911Z",
+    "reply": "well "
   },
   {
-    "id": "msg_5",
-    "name": "Sarah Umubyeyi",
-    "email": "sarah@example.com",
-    "phone": "+250788789012",
-    "subject": "Payment Options",
-    "message": "What payment methods do you accept?",
+    "id": "msg_1768570053286",
+    "name": "Uwitonze pacific",
+    "email": "pacific.uwitonze112@gmail.com",
+    "phone": "0788587420",
+    "subject": "idea",
+    "message": "well thuis is good can you please change the colors \n",
     "status": "Unread",
-    "createdAt": "2024-12-24T15:00:00.000Z",
-    "updatedAt": "2024-12-24T15:00:00.000Z"
+    "createdAt": "2026-01-16T13:27:33.286Z",
+    "updatedAt": "2026-01-16T13:27:33.286Z"
   }
 ]

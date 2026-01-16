@@ -36,6 +36,9 @@ export default function Home() {
   const [productToOrder, setProductToOrder] = useState<Product | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   // Format price to RWF currency
   const formatPrice = (price: number) => {
@@ -96,10 +99,47 @@ export default function Home() {
     setProductToOrder(null);
   };
 
-  const handleOrderSubmit = (formData: any) => {
-    console.log('Order submitted:', formData);
-    alert('Order placed successfully! We will contact you shortly.');
-    handleCloseOrderForm();
+  const handleOrderSubmit = async (formData: any) => {
+    if (!productToOrder) return;
+
+    try {
+      const orderData = {
+        customerName: `${formData.firstName} ${formData.lastName}`,
+        customerEmail: formData.email,
+        customerPhone: formData.phone,
+        product: productToOrder.name,
+        productId: productToOrder.id,
+        quantity: 1,
+        totalAmount: productToOrder.price,
+        deliveryAddress: formData.deliveryOption === 'delivery'
+          ? `${formData.streetAddress}, ${formData.city}, ${formData.state}`
+          : 'Store Pickup',
+        deliveryOption: formData.deliveryOption === 'delivery' ? 'Home Delivery' : 'Store Pickup',
+      };
+
+      const response = await fetch('http://localhost:3000/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setModalMessage('Order placed successfully! We will contact you shortly.');
+        setShowSuccessModal(true);
+        handleCloseOrderForm();
+      } else {
+        setModalMessage('Failed to place order. Please try again.');
+        setShowErrorModal(true);
+      }
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      setModalMessage('An error occurred while placing your order. Please try again.');
+      setShowErrorModal(true);
+    }
   };
 
   return (
@@ -333,6 +373,54 @@ export default function Home() {
           productPrice={productToOrder.price}
           onSubmit={handleOrderSubmit}
         />
+      )}
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-xl transition-all duration-300 ease-out opacity-100 scale-100">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Success!</h3>
+              <p className="text-gray-600 mb-6">{modalMessage}</p>
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full py-2 px-4 rounded-lg text-white font-semibold hover:opacity-90 transition-all"
+                style={{backgroundColor: '#F97316'}}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {showErrorModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-xl transition-all duration-300 ease-out opacity-100 scale-100">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Error</h3>
+              <p className="text-gray-600 mb-6">{modalMessage}</p>
+              <button
+                onClick={() => setShowErrorModal(false)}
+                className="w-full py-2 px-4 rounded-lg text-white font-semibold hover:opacity-90 transition-all"
+                style={{backgroundColor: '#F97316'}}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
