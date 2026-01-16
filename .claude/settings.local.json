@@ -20,7 +20,10 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(git stash:*)",
-      "Bash(yarn build:*)"
+      "Bash(yarn build:*)",
+      "Bash(yarn add:*)",
+      "Bash(readlink:*)",
+      "Bash(npm:*)"
     ],
     "deny": [],
     "ask": [],

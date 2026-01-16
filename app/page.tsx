@@ -39,6 +39,7 @@ export default function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Format price to RWF currency
   const formatPrice = (price: number) => {
@@ -50,7 +51,7 @@ export default function Home() {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('/api/products');
         const data: ApiResponse<Product[]> = await response.json();
 
         if (data.success && data.data) {
@@ -117,7 +118,7 @@ export default function Home() {
         deliveryOption: formData.deliveryOption === 'delivery' ? 'Home Delivery' : 'Store Pickup',
       };
 
-      const response = await fetch('http://localhost:3000/api/orders', {
+      const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -140,6 +141,22 @@ export default function Home() {
       setModalMessage('An error occurred while placing your order. Please try again.');
       setShowErrorModal(true);
     }
+  };
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      window.location.href = `/user/product?search=${encodeURIComponent(searchQuery.trim())}`;
+    } else {
+      window.location.href = '/user/product';
+    }
+  };
+
+  const handleQuickSearch = (query: string) => {
+    window.location.href = `/user/product?search=${encodeURIComponent(query)}`;
+  };
+
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
@@ -184,9 +201,16 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Search for smartphones, laptops, accessories..."
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   className="flex-1 px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs text-black outline-none cursor-text"
                 />
-                <button className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 m-1 rounded-full text-white text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all cursor-pointer" style={{backgroundColor: '#F97316'}}>
+                <button
+                  onClick={handleSearch}
+                  className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 m-1 rounded-full text-white text-[10px] sm:text-xs font-semibold hover:opacity-90 transition-all cursor-pointer"
+                  style={{backgroundColor: '#F97316'}}
+                >
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
@@ -198,46 +222,46 @@ export default function Home() {
             {/* Frequently Searched */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2 px-4 sm:px-0">
               <span className="text-white text-[10px] sm:text-xs hidden sm:inline">Quick search:</span>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('iPhone 15 Pro Max')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 iPhone 15 Pro Max
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Samsung Galaxy')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Samsung Galaxy
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('AirPods Pro')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 AirPods Pro
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('MacBook')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 MacBook
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Gaming Laptops')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Gaming Laptops
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('4K Monitors')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 4K Monitors
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Smart Watches')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Smart Watches
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Bluetooth Speakers')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Bluetooth Speakers
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('DSLR Cameras')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 DSLR Cameras
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Wireless Headphones')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Wireless Headphones
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Gaming Consoles')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Gaming Consoles
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Smart Home Devices')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Smart Home Devices
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('External Hard Drives')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 External Hard Drives
               </button>
-              <button className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+              <button onClick={() => handleQuickSearch('Computer Monitors')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
                 Computer Monitors
               </button>
             </div>
@@ -294,7 +318,7 @@ export default function Home() {
                 {/* Product Image */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 h-56 sm:h-48 lg:h-56 overflow-hidden">
                   <img
-                    src={product.image}
+                    src={product.images?.[0] || '/placeholder-product.jpg'}
                     alt={product.name}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />

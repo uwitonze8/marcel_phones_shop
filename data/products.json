@@ -48,5 +48,22 @@
     ],
     "createdAt": "2026-01-16T12:50:33.077Z",
     "updatedAt": "2026-01-16T12:50:33.077Z"
+  },
+  {
+    "id": "prod_1768578631945",
+    "name": "Iphone 17ProMax",
+    "category": "Smartphones",
+    "price": 2186892,
+    "stock": 12,
+    "status": "In Stock",
+    "description": "The iPhone 17 Pro Max, released in late 2025, is a high-end smartphone featuring the powerful A19 Pro chip, advanced 48MP triple cameras with extended optical zoom, a bright 6.9-inch ProMotion display, and impressive battery life, all within a forged aluminum unibody design with an Action Button, running iOS 26. Key upgrades include enhanced thermal management, a new Center Stage front camera, and eSIM-only support, offering top-tier performance and pro-level photography.  \n",
+    "images": [
+      "/uploads/products/1768578631924-7j3e3a.jpeg",
+      "/uploads/products/1768578631927-job3me.jpeg",
+      "/uploads/products/1768578631928-a7ta6.jpeg",
+      "/uploads/products/1768578631929-bc0fxq.jpeg"
+    ],
+    "createdAt": "2026-01-16T15:50:31.945Z",
+    "updatedAt": "2026-01-16T15:52:19.814Z"
   }
 ]

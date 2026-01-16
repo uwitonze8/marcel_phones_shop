@@ -18,5 +18,15 @@
     "totalSpent": 3000,
     "createdAt": "2026-01-16T15:20:06.798Z",
     "lastOrderDate": "2026-01-16T15:20:06.798Z"
+  },
+  {
+    "id": "cust_1768577944045",
+    "name": "University Kigali",
+    "email": "maliki.hamid@javahouseafrica.com",
+    "phone": "+250785023984",
+    "totalOrders": 1,
+    "totalSpent": 34554,
+    "createdAt": "2026-01-16T15:39:04.045Z",
+    "lastOrderDate": "2026-01-16T15:39:04.045Z"
   }
 ]

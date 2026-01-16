@@ -7,7 +7,7 @@
     "currency": "RWF",
     "streetAddress": "KN 5 Rd, Kigali",
     "city": "Kigali",
-    "district": "Gatsibo",
+    "district": "Nyarugenge",
     "notifications": {
       "newOrders": true,
       "newCustomers": true,
@@ -17,6 +17,7 @@
       "email": "pacific.uwitonze112@gmail.com",
       "password": "Mubeni@2025"
     },
-    "updatedAt": "2026-01-16T13:59:34.571Z"
+    "updatedAt": "2026-01-16T16:31:23.088Z",
+    "profileImage": "/uploads/products/1768581080071-rxdrp.jpeg"
   }
 ]

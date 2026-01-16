@@ -45,13 +45,22 @@ export default function ProductPage() {
   const [modalMessage, setModalMessage] = useState('');
   const productsPerPage = 12;
 
+  // Read search query from URL parameters on mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam) {
+      setSearchQuery(searchParam);
+    }
+  }, []);
+
   // Fetch products from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('/api/products');
         const data: ApiResponse<Product[]> = await response.json();
 
         if (data.success && data.data) {
@@ -177,7 +186,7 @@ export default function ProductPage() {
       };
 
       // Call API to create order
-      const response = await fetch('http://localhost:3000/api/orders', {
+      const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -236,6 +245,10 @@ export default function ProductPage() {
     setPriceRange('All');
     setSortBy('default');
     setCurrentPage(1);
+  };
+
+  const handleQuickSearch = (query: string) => {
+    window.location.href = `/user/product?search=${encodeURIComponent(query)}`;
   };
 
   const formatPrice = (price: number) => {
@@ -300,6 +313,53 @@ export default function ProductPage() {
                   <span className="hidden sm:inline">Search</span>
                 </button>
               </div>
+            </div>
+
+            {/* Quick Search */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2 px-4 sm:px-0">
+              <span className="text-white text-[10px] sm:text-xs hidden sm:inline">Quick search:</span>
+              <button onClick={() => handleQuickSearch('iPhone 15 Pro Max')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                iPhone 15 Pro Max
+              </button>
+              <button onClick={() => handleQuickSearch('Samsung Galaxy')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Samsung Galaxy
+              </button>
+              <button onClick={() => handleQuickSearch('AirPods Pro')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                AirPods Pro
+              </button>
+              <button onClick={() => handleQuickSearch('MacBook')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                MacBook
+              </button>
+              <button onClick={() => handleQuickSearch('Gaming Laptops')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Gaming Laptops
+              </button>
+              <button onClick={() => handleQuickSearch('4K Monitors')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                4K Monitors
+              </button>
+              <button onClick={() => handleQuickSearch('Smart Watches')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Smart Watches
+              </button>
+              <button onClick={() => handleQuickSearch('Bluetooth Speakers')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Bluetooth Speakers
+              </button>
+              <button onClick={() => handleQuickSearch('DSLR Cameras')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                DSLR Cameras
+              </button>
+              <button onClick={() => handleQuickSearch('Wireless Headphones')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Wireless Headphones
+              </button>
+              <button onClick={() => handleQuickSearch('Gaming Consoles')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Gaming Consoles
+              </button>
+              <button onClick={() => handleQuickSearch('Smart Home Devices')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Smart Home Devices
+              </button>
+              <button onClick={() => handleQuickSearch('External Hard Drives')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                External Hard Drives
+              </button>
+              <button onClick={() => handleQuickSearch('Computer Monitors')} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/30 text-white text-[10px] sm:text-xs hover:bg-white/10 transition-all cursor-pointer">
+                Computer Monitors
+              </button>
             </div>
 
             {/* Filter Section - Transparent Design */}
@@ -445,7 +505,7 @@ export default function ProductPage() {
                   {/* Product Image */}
                   <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 h-56 sm:h-48 lg:h-56 overflow-hidden">
                     <img
-                      src={product.image}
+                      src={product.images?.[0] || '/placeholder-product.jpg'}
                       alt={product.name}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />

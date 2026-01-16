@@ -42,10 +42,10 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
 
   if (!isOpen || !product) return null;
 
-  // Use images array if available, otherwise fall back to single image
+  // Use images array with fallback to placeholder
   const productImages = product.images && product.images.length > 0
     ? product.images
-    : product.image ? [product.image] : [];
+    : ['/placeholder-product.jpg'];
 
   const handleOrderNow = () => {
     setShowOrderForm(true);
