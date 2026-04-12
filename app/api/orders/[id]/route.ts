@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, Order } from '@/lib/db';
+import { db, Order } from '@/lib/supabase';
+import { normalizeOrder } from '@/lib/normalize';
 
 // GET /api/orders/[id] - Get a single order
 export async function GET(
@@ -8,15 +9,16 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const order = db.findById<Order>('orders', id);
+    const order = await db.findById<Order>('orders', id);
     if (!order) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
         { status: 404 }
       );
     }
-    return NextResponse.json({ success: true, data: order });
+    return NextResponse.json({ success: true, data: normalizeOrder(order) });
   } catch (error) {
+    console.error('Error fetching order:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch order' },
       { status: 500 }
@@ -32,15 +34,16 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const order = db.update<Order>('orders', id, body);
+    const order = await db.update<Order>('orders', id, body);
     if (!order) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
         { status: 404 }
       );
     }
-    return NextResponse.json({ success: true, data: order });
+    return NextResponse.json({ success: true, data: normalizeOrder(order) });
   } catch (error) {
+    console.error('Error updating order:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to update order' },
       { status: 500 }
@@ -55,7 +58,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const deleted = db.delete('orders', id);
+    const deleted = await db.delete('orders', id);
     if (!deleted) {
       return NextResponse.json(
         { success: false, error: 'Order not found' },
@@ -64,6 +67,7 @@ export async function DELETE(
     }
     return NextResponse.json({ success: true, message: 'Order deleted' });
   } catch (error) {
+    console.error('Error deleting order:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to delete order' },
       { status: 500 }
