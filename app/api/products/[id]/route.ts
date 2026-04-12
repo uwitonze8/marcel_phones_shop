@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, Product } from '@/lib/db';
+import { db, Product } from '@/lib/supabase';
+import { normalizeProduct } from '@/lib/normalize';
 
 // GET /api/products/[id] - Get a single product
 export async function GET(
@@ -8,15 +9,16 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const product = db.findById<Product>('products', id);
+    const product = await db.findById<Product>('products', id);
     if (!product) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },
         { status: 404 }
       );
     }
-    return NextResponse.json({ success: true, data: product });
+    return NextResponse.json({ success: true, data: normalizeProduct(product) });
   } catch (error) {
+    console.error('Error fetching product:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch product' },
       { status: 500 }
@@ -40,15 +42,16 @@ export async function PUT(
       updates.status = stock > 0 ? (stock > 10 ? 'In Stock' : 'Low Stock') : 'Out of Stock';
     }
 
-    const product = db.update<Product>('products', id, updates);
+    const product = await db.update<Product>('products', id, updates);
     if (!product) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },
         { status: 404 }
       );
     }
-    return NextResponse.json({ success: true, data: product });
+    return NextResponse.json({ success: true, data: normalizeProduct(product) });
   } catch (error) {
+    console.error('Error updating product:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to update product' },
       { status: 500 }
@@ -63,7 +66,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const deleted = db.delete('products', id);
+    const deleted = await db.delete('products', id);
     if (!deleted) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },
@@ -72,6 +75,7 @@ export async function DELETE(
     }
     return NextResponse.json({ success: true, message: 'Product deleted' });
   } catch (error) {
+    console.error('Error deleting product:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to delete product' },
       { status: 500 }
