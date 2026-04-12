@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { existsSync } from 'fs';
-import path from 'path';
+import { supabase } from '@/lib/supabase';
 
-// POST /api/upload - Upload product images
+// POST /api/upload - Upload product images to Supabase Storage
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -16,39 +14,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'products');
-    if (!existsSync(uploadsDir)) {
-      await mkdir(uploadsDir, { recursive: true });
-    }
-
     const uploadedUrls: string[] = [];
 
     for (const file of files) {
       if (!file) continue;
 
-      // Generate unique filename
       const timestamp = Date.now();
       const randomString = Math.random().toString(36).substring(7);
       const extension = file.name.split('.').pop();
       const filename = `${timestamp}-${randomString}.${extension}`;
 
-      // Convert file to buffer
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      // Save file
-      const filepath = path.join(uploadsDir, filename);
-      await writeFile(filepath, buffer);
+      const { error } = await supabase.storage
+        .from('products')
+        .upload(filename, buffer, { contentType: file.type, upsert: false });
 
-      // Return public URL
-      uploadedUrls.push(`/uploads/products/${filename}`);
+      if (error) {
+        console.error('Supabase upload error:', error);
+        return NextResponse.json(
+          { success: false, error: `Failed to upload ${file.name}` },
+          { status: 500 }
+        );
+      }
+
+      const { data: publicUrlData } = supabase.storage
+        .from('products')
+        .getPublicUrl(filename);
+
+      uploadedUrls.push(publicUrlData.publicUrl);
     }
 
-    return NextResponse.json({
-      success: true,
-      data: uploadedUrls
-    });
+    return NextResponse.json({ success: true, data: uploadedUrls });
   } catch (error) {
     console.error('Upload error:', error);
     return NextResponse.json(
