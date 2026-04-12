@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, Product } from '@/lib/db';
+import { db, Product } from '@/lib/supabase';
+import { normalizeProduct } from '@/lib/normalize';
 
 // GET /api/products - Get all products
 export async function GET() {
   try {
-    const products = db.findAll<Product>('products');
-    return NextResponse.json({ success: true, data: products });
+    const products = await db.findAll<Product>('products');
+    return NextResponse.json({ success: true, data: products.map(normalizeProduct) });
   } catch (error) {
+    console.error('Error fetching products:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch products' },
       { status: 500 }
@@ -27,7 +29,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const newProduct: Product = {
+    const newProduct = {
       id: `prod_${Date.now()}`,
       name,
       category,
@@ -36,13 +38,19 @@ export async function POST(request: NextRequest) {
       status: stock > 0 ? (stock > 10 ? 'In Stock' : 'Low Stock') : 'Out of Stock',
       description: description || '',
       images: images || [],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     };
 
-    const product = db.create<Product>('products', newProduct);
-    return NextResponse.json({ success: true, data: product }, { status: 201 });
+    const product = await db.create<Product>('products', newProduct);
+    if (!product) {
+      return NextResponse.json(
+        { success: false, error: 'Failed to create product' },
+        { status: 500 }
+      );
+    }
+    
+    return NextResponse.json({ success: true, data: normalizeProduct(product) }, { status: 201 });
   } catch (error) {
+    console.error('Error creating product:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to create product' },
       { status: 500 }

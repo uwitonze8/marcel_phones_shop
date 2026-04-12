@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, Message } from '@/lib/db';
+import { db, Message } from '@/lib/supabase';
+import { normalizeMessage } from '@/lib/normalize';
 
 // GET /api/messages - Get all messages
 export async function GET() {
   try {
-    const messages = db.findAll<Message>('messages');
-    return NextResponse.json({ success: true, data: messages });
+    const messages = await db.findAll<Message>('messages');
+    return NextResponse.json({ success: true, data: messages.map(normalizeMessage) });
   } catch (error) {
+    console.error('Error fetching messages:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch messages' },
       { status: 500 }
@@ -27,21 +29,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const newMessage: Message = {
+    const newMessage = {
       id: `msg_${Date.now()}`,
       name,
       email,
       phone: phone || '',
       subject,
       message,
-      status: 'Unread',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      status: 'Unread' as const,
     };
 
-    const savedMessage = db.create<Message>('messages', newMessage);
-    return NextResponse.json({ success: true, data: savedMessage }, { status: 201 });
+    const savedMessage = await db.create<Message>('messages', newMessage);
+    if (!savedMessage) {
+      return NextResponse.json(
+        { success: false, error: 'Failed to send message' },
+        { status: 500 }
+      );
+    }
+    
+    return NextResponse.json({ success: true, data: normalizeMessage(savedMessage) }, { status: 201 });
   } catch (error) {
+    console.error('Error sending message:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to send message' },
       { status: 500 }
